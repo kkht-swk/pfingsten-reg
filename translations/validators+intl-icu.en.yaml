@@ -1,0 +1,62 @@
+error.verein.notblank: |
+    Please enter club name
+
+error.altersklasse.notblank: |
+    Please select age group
+
+error.ankunftszeit.notblank: |
+    Please enter arrival time
+
+error.anzahl.notblank: |
+    Please enter number
+
+error.anzahl.greaterEqualZero: |
+    Please enter number >= 0
+
+error.vorname.notblank: |
+    Please enter first name
+
+error.nachname.notblank: |
+    Please enter last name
+
+error.nahrung.notblank: |
+    Please enter catering
+
+error.email.notblank: |
+    Please enter email address
+
+error.email.valid: |
+    Please enter a valid email address
+
+error.phone.notblank: |
+    Please enter phone number
+
+error.logo.max_size: |
+    Please select a picture of 2 MB max
+
+error.logo.format: |
+    Please select correct format (PNG, JPG), max. 2 MB
+
+error.picture.max_size: |
+    Please select a picture of 4 MB max
+
+error.picture.format: |
+    Please select correct format (PNG, JPG), max. 4 MB
+
+error.iban.notblank: |
+    Please enter IBAN
+
+error.iban.valid: |
+    Please enter valid IBAN
+
+error.bic.notblank: |
+    Please enter BIC
+
+error.bic.valid: |
+    Please enter valid BIC
+
+error.bank.notblank: |
+    Please enter bank name
+
+error.kontoinhaber.notblank: |
+    Please enter account holder

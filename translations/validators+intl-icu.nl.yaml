@@ -1,0 +1,62 @@
+error.verein.notblank: |
+    Geef de clubnaam op
+
+error.altersklasse.notblank: |
+    Geef de leeftijdsgroep op
+
+error.ankunftszeit.notblank: |
+    Geef de aankomsttijd op
+
+error.anzahl.notblank: |
+    Geef de nummer op
+
+error.anzahl.greaterEqualZero: |
+    Voer een getal >= 0 in
+
+error.vorname.notblank: |
+    Geef de voornaam op
+
+error.nachname.notblank: |
+    Geef de achternaam op
+
+error.nahrung.notblank: |
+    Geef het dieet op
+
+error.email.notblank: |
+    Geef een e-mailadres op
+
+error.email.valid: |
+    Geef een geldig email adres
+
+error.phone.notblank: |
+    Geef uw telefoonnummer op
+
+error.logo.max_size: |
+    Upload een afbeelding van maximaal 2 MB
+
+error.logo.format: |
+    Upload een geschikt formaat (PNG, JPG), max. 2 MB
+
+error.picture.max_size: |
+    Upload een afbeelding van maximaal 4 MB
+
+error.picture.format: |
+    Upload een geschikt formaat (PNG, JPG), max. 4 MB
+
+error.iban.notblank: |
+    Geef IBAN op
+
+error.iban.valid: |
+    Geef een geldig IBAN op
+
+error.bic.notblank: |
+    Geef BIC op
+
+error.bic.valid: |
+    Geef een geldig BIC op
+
+error.bank.notblank: |
+    Vermeld de naam van de bank
+
+error.kontoinhaber.notblank: |
+    Geef de rekeninghouder op

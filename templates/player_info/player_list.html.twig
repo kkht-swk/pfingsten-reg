@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ parent() }} | Spielerliste {% endblock %}
+{% block body %}
+    <!-- md container breaks if smaller than 768-->
+    <div class="container p-4" style="max-width: 1320px;">
+      <div class="row text-center justify-content-center mb-5">
+        <div class="col-auto gy-3">
+          <img src="{{ asset('pics/KKHT-logo.png') }}" alt="KKHT SWK Logo" class="kkhtlogo">
+          <h1>SWK Pfingstturnier</h1> <span class="number">2024</span>
+        </div>
+      </div>
+
+      <table class="table mb-5" style="font-size: 16px;">
+        <thead>
+          <tr style="font-size: 20px;">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            {# <th scope="col">Team</th> #}
+            <th scope="col">Food</th>
+            <th scope="col">Kontakt</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">IBAN</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+      {% for ak, player_list in player_map %}
+          <tr>
+            <th scope="row" class="table-secondary" colspan="9">Altersklasse {{ ak }} ({{ player_list|length }})</th>
+          </tr>
+      {# <h3 class="pt-4 mt-5">Altersklasse {{ ak }} ({{ player_list|length }})</h3> #}
+        {% for pi in player_list %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ pi.vorname }}</td>
+            <td>{{ pi.nachname }}</td>
+            {# <td>{{ pi.altersklasse }}</td> #}
+            <td>{{ pi.nahrung }}</td>
+            <td>{{ pi.kontakt.vorname }} {{ pi.kontakt.nachname }}</td>
+            <td>{{ pi.kontakt.email }}</td>
+            <td>{{ pi.kontakt.phone }}</td>
+            <td>{{ pi.account.iban }}</td>
+            <td><a href="{{ path('app_player_delete', {'hashkey': pi.hashkey }) }}">Delete</a></td>
+          </tr>
+        {% endfor %}
+      {% endfor %}
+        </tbody>
+      </table>
+    </div>
+{% endblock %}

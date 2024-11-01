@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ parent() }} | Teamliste {% endblock %}
+{% block body %}
+    <!-- md container breaks if smaller than 768-->
+    <div class="container p-4" style="max-width: 1320px;">
+      <div class="row text-center justify-content-center mb-5">
+        <div class="col-auto gy-3">
+          <img src="{{ asset('pics/KKHT-logo.png') }}" alt="KKHT SWK Logo" class="kkhtlogo">
+          <h1>SWK Pfingstturnier</h1> <span class="number">2024</span>
+        </div>
+      </div>
+
+      <table class="table mb-5" style="font-size: 16px;">
+        <thead>
+          <tr style="font-size: 20px;">
+            <th scope="col">#</th>
+            <th scope="col">Verein</th>
+            <th scope="col">Logo</th>
+            <th scope="col">Picture</th>
+            <th scope="col">Kontakt</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">IBAN</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+      {% for ak, team_list in team_map %}
+          <tr>
+            <th scope="row" class="table-secondary" colspan="9">Altersklasse {{ ak }} ({{ team_list|length }})</th>
+          </tr>
+      {# <h3 class="pt-4 mt-5">Altersklasse {{ ak }} ({{ player_list|length }})</h3> #}
+        {% for ti in team_list %}
+          {% set lp = 'uploads/' ~ ti.logoPath %}
+          {% set pp = 'uploads/' ~ ti.picturePath %}
+          <tr class="align-middle">
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ ti.verein }}</td>
+            <td>{% if ti.logoPath is not empty %}<a href="{{ asset(lp) }}"><img src="{{ asset(lp) }}" width="50px"></a>{% else %}None{% endif %}</td>
+            <td>{% if ti.picturePath is not empty %}<a href="{{ asset(pp) }}"><img src="{{ asset(pp) }}" width="50px"></a>{% else %}None{% endif %}</td>
+            <td>{{ ti.kontakt.vorname }} {{ ti.kontakt.nachname }}</td>
+            <td>{{ ti.kontakt.email }}</td>
+            <td>{{ ti.kontakt.phone }}</td>
+            <td>{{ ti.account.iban }}</td>
+            <td>
+              <a href="{{ path('app_team_master', {'hashkey': ti.hashkey }) }}">Master</a>
+              {# &nbsp;<a href="{{ path('app_team_delete', {'hashkey': ti.hashkey }) }}">Delete</a> #}
+            </td>
+          </tr>
+        {% endfor %}
+      {% endfor %}
+        </tbody>
+      </table>
+    </div>
+{% endblock %}

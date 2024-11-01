@@ -1,0 +1,62 @@
+error.verein.notblank: |
+    Bitte Vereinsnamen angeben
+
+error.altersklasse.notblank: |
+    Bitte Altersklasse wählen
+
+error.ankunftszeit.notblank: |
+    Bitte Ankunftszeit angeben
+
+error.anzahl.notblank: |
+    Bitte Anzahl angeben
+
+error.anzahl.greaterEqualZero: |
+    Bitte eine Zahl >= 0 eingeben
+
+error.vorname.notblank: |
+    Bitte Vorname angeben
+
+error.nachname.notblank: |
+    Bitte Nachname angeben
+
+error.nahrung.notblank: |
+    Bitte Ernährung angeben
+
+error.email.notblank: |
+    Bitte E-mail-Adresse angeben
+
+error.email.valid: |
+    Bitte eine gültige E-mail-Adresse angeben
+
+error.phone.notblank: |
+    Bitte Telefonnummer angeben
+
+error.logo.max_size: |
+    Bitte ein Bild mit max. 2 MB hochladen
+
+error.logo.format: |
+    Bitte ein passendes Format hochladen (PNG, JPG), max. 2 MB
+
+error.picture.max_size: |
+    Bitte ein Bild mit max. 4 MB hochladen
+
+error.picture.format: |
+    Bitte ein passendes Format hochladen (PNG, JPG), max. 4 MB
+
+error.iban.notblank: |
+    Bitte IBAN angeben
+
+error.iban.valid: |
+    Bitte eine gültige IBAN angeben
+
+error.bic.notblank: |
+    Bitte BIC angeben
+
+error.bic.valid: |
+    Bitte eine gültige BIC angeben
+
+error.bank.notblank: |
+    Bitte Name der Bank angeben
+
+error.kontoinhaber.notblank: |
+    Bitte Kontoinhaber:in angeben

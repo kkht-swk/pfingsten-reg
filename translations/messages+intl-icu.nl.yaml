@@ -1,0 +1,127 @@
+site.title: |
+    SWK Pinkstertoernooi 2024
+
+team.register.title: |
+    Teamregistratie
+
+team.summary.title: |
+    Teamsamenvatting
+
+team.heading: |
+    SWK Pinkstertoernooi
+
+team.intro.heading: |
+    Inschrijfformulier voor externe teams
+
+team.intro.text:
+    <p>Welkom bij het Pinkstertoernooi 2024 vanuit Schwarz-Weiß Keulen. Van de 18e tot de 20e Mei 2024 wordt gespeeld in de SWK-faciliteit in het noorden van Keulen. Via dit formulier kunnen externe teams, oftewel onze gasten, worden aangemeld.</p>
+
+    <p>Vul alle gegevens zorgvuldig in. Veel van de genoemde velden zijn <strong>verplicht</strong> , dus ze moeten correct worden ingevuld voordat het formulier wordt verzonden. Na succesvolle afronding ontvangt de hieronder genoemde contactpersoon per e-mail een samenvatting van de aanmelding.</p>
+
+team.intro.errors: |
+    Fout bij het invoeren - repareer het a.u.b.!
+
+team.info.heading: |
+    Teaminformatie
+
+team.info.text: |
+    <p>Geef de clubnaam, leeftijdsgroep en verwachte aankomsttijd (vrijdag of zaterdag, tijd) op van het team dat moet worden geregistreerd. Optioneel kunt u ook een teamnaam invoeren.</p>
+
+team.kontakt.heading: |
+    Contactpersoon
+
+team.kontakt.text: |
+    <p>De contactpersoon is de persoon die het team doorgaans aanmeldt, maar vooral ter plaatse begeleidt. Tevens sturen wij per e-mail een bevestiging van inschrijving naar deze persoon.</p>
+
+team.verpflegung.heading: |
+    Horeca
+
+team.verpflegung.text: |
+    <p>Geef aan hoe we de maaltijden moeten plannen: Hoeveel spelers willen een veganistisch of op vlees gebaseerd dieet? Hoe zit het met de verzorgers? (Voer alleen hele getallen in.)</p>
+
+team.verpflegung.kosten: |
+    In totaal <span id="s0">{cnt_spieler}</span> spelers, <span id="s1">{cnt_betreuer}</span> begeleiders - totale kosten: € <span id="m0">{curr_cost}</span>
+
+team.bilder.heading: |
+    Afbeeldingen (optioneel)
+
+team.bilder.text: |
+    <p>We hebben een actueel logo van je nodig (voor het spelplan etc.) en een teamfoto die we graag op ons <a href="https://www.instagram.com/kkht_pfingsten/" target="blank">Instagram-kanaal</a> willen gebruiken - daar stellen we altijd alle deelnemende teams voor. Als je dat niet wilt, kun je de teamfoto weglaten.</p>
+
+team.misc.heading: |
+    Gemengd
+
+team.misc.text: |
+    <p>Hier kunt u aangeven of er nog andere campinggasten het team vergezellen. Wij kunnen hiervoor geen maaltijden etc. plannen, maar willen ons wel graag laten informeren zodat wij ervoor kunnen zorgen dat de capaciteit van de camping voldoende is. Bij de opmerkingen kun je bijvoorbeeld aangeven of en met hoeveel caravans of campers je komt, maar ook andere zaken kwijt.</p>
+
+team.bank.heading: |
+    Bankgegevens voor SEPA-afschrijving
+
+team.bank.text: |
+    <p>Wij innen het totaalbedrag voor de geboekte maaltijdpakketten van een bankrekening via de vereniging <strong>Blackstars e.V.</strong> Hiervoor hebben wij een bijbehorend SEPA-mandaat nodig. De verhuizing zal niet plaatsvinden vóór 12 mei 2024.</p>
+
+    <p>Hierbij machtig ik <strong>Blackstars e.V.</strong> om het resulterende totaalbedrag van <strong>€ <span id="m1">{curr_cost}</span></strong> te innen van de hieronder genoemde rekening.</p>
+
+team.outro.text: |
+    <p>Door dit formulier in te dienen, registreer ik de hierboven genoemde speler bindend. Ik ga uitdrukkelijk akkoord met het incasseren van de deelnamekosten van <strong>€ <span id="m2">{curr_cost}</span></strong> van de genoemde bankrekening. Ik weet dat ik bij ernstige overtreding van de gedragsregels (bijvoorbeeld alcoholgebruik) op verzoek van het organisatieteam de speler mogelijk moet ophalen.<p>
+
+
+
+# =================================================
+
+team.summary.text: |
+    <p>Bedankt voor het aanmelden van team <strong>{team_name} ({team_ak})</strong> voor het SWK Pinksteren 2024 toernooi.</p>
+
+    <p>We hebben een e-mail gestuurd naar het opgegeven contactadres ({kontakt_email}). ). Als u vragen heeft, kunt u contact opnemen met het organisatieteam via <a href="mailto:pfingsten@kkht.de">pfingsten@kkht.de</a>.</p>
+
+# =================================================
+
+label.verein: Club
+placeholder.verein: Clubnaam
+
+label.altersklasse: Leeftijdsgroep
+label.choose: Selectie...
+label.wU12:	MO12
+label.mU12:	JO12
+label.wU14: MO14
+label.mU14: JO14
+
+label.ankunftszeit: Aankomsttijd
+placeholder.ankunftszeit: Aankomsttijd (ca.)
+
+label.teamname: Teamnaam
+placeholder.teamname: Teamnaam (optional)
+
+label.vorname: Voornaam
+placeholder.vorname: Voornaam
+label.nachname: Achternaam
+placeholder.nachname: Achternaam
+label.email: E-mail
+placeholder.email: name@example.com
+label.phone: Telefoon
+placeholder.phone: +31 71 729 6347
+
+label.spieler.vegan: Speler vegan
+label.spieler.fleisch: Speler vlees
+label.betreuer.vegan: Begeleider vegan
+label.betreuer.fleisch: Begeleider vlees
+placeholder.anzahl: Nummer
+
+label.gaeste: Het aantal gasten
+placeholder.gaeste: Nummer (optional)
+label.bemerkung: Opmerking
+placeholder.bemerkung: Opmerking (optional)
+
+label.iban: IBAN
+placeholder.iban: NL...
+label.bic: BIC
+placeholder.bic: BIC
+label.bank: Bank
+placeholder.bank: Naam van de Bank
+label.kontoinhaber: Rekeninghouder
+placeholder.kontoinhaber: Vornaam Achternaam
+
+label.submit: Indienen
+
+# ====================================================================
+

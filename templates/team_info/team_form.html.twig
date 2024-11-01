@@ -1,0 +1,156 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ parent() }} | {{ 'team.register.title'|trans }} {% endblock %}
+{% block body %}
+    <!-- md container breaks if smaller than 768-->
+    <div class="container">
+      <div class="row text-center justify-content-center mb-5">
+        <div class="col-auto gy-3">
+          <img src="{{ asset('pics/KKHT-logo.png') }}" alt="KKHT SWK Logo" class="kkhtlogo">
+          <h1>{{ 'team.heading'|trans }}</h1> <span class="number">2024</span>
+        </div>
+      </div>
+
+      <h2>{{ 'team.intro.heading'|trans }}</h2>
+      {{ 'team.intro.text'|trans|raw }}
+
+      {% if hasErrors %}
+      <p style="color: #dc3545"><strong>{{ 'team.intro.errors'|trans }}</strong></p>
+      {% endif %}
+
+      {{ form_start(form) }}
+
+        <h3 class="mt-5 mb-3">{{ 'team.info.heading'|trans }}</h3>
+        {{ 'team.info.text'|trans|raw }}
+        <div class="row g-2">
+          <div class="col-sm-6 col-lg-3">
+            {{ form_row(form.verein) }}
+          </div>
+          <div class="col-sm-6  col-lg-3">
+            {{ form_row(form.altersklasse) }}
+          </div>
+          <div class="col-sm-6  col-lg-3">
+            {{ form_row(form.ankunftszeit) }}
+          </div>
+          <div class="col-sm-6  col-lg-3">
+            {{ form_row(form.teamname) }}
+          </div>
+        </div>
+
+        <h3 class="mt-5 mb-3">{{ 'team.kontakt.heading'|trans }}</h3>
+        {{ 'team.kontakt.text'|trans|raw }}
+        <div class="row g-2">
+          <div class="col-sm-6 col-lg-3">
+            {{ form_row(form.kontakt.vorname) }}
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            {{ form_row(form.kontakt.nachname) }}
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            {{ form_row(form.kontakt.email) }}
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            {{ form_row(form.kontakt.phone) }}
+          </div>
+        </div>
+
+        <h3 class="mt-5 mb-3">{{ 'team.verpflegung.heading'|trans }}</h3>
+        {{ 'team.verpflegung.text'|trans|raw }}
+        <div class="row g-2">
+          <div class="col-sm-6 col-lg-3">
+            {{ form_row(form.spielervegan) }}
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            {{ form_row(form.spielerfleisch) }}
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            {{ form_row(form.betreuervegan) }}
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            {{ form_row(form.betreuerfleisch) }}
+          </div>
+        </div>
+        <p><strong>{{ 'team.verpflegung.kosten'|trans({
+          'cnt_spieler': cnt_spieler,
+          'cnt_betreuer': cnt_betreuer,
+          'curr_cost': curr_cost,
+          })|raw }}</strong></p>
+
+        <h3 class="mt-5 mb-3">{{ 'team.bilder.heading'|trans }}</h3>
+        {{ 'team.bilder.text'|trans|raw }}
+        <div class="row g-2 align-items-center mb-3">
+          <div class="col-12 col-md-2">
+            <figure style="text-align: center">
+              <img src="{{ asset(logoPath) }}" width="80px" alt="Aktuelles Logo">
+              <figcaption>Logo</figcaption>
+            </figure>
+          </div>
+          <div class="col-12 col-md-10">
+            {{ form_row(form.logo) }}
+          </div>
+        </div>
+        <div class="row g-2 align-items-center">
+          <div class="col-12 col-md-2">
+            <figure style="text-align: center">
+              <img src="{{ asset(picturePath) }}" width="120px" alt="Aktuelles Teambild">
+              <figcaption>Team</figcaption>
+            </figure>
+          </div>
+          <div class="col-12 col-md-10 ">
+            {{ form_row(form.picture) }}
+          </div>
+        </div>
+
+        <h3 class="mt-5 mb-3">{{ 'team.misc.heading'|trans }}</h3>
+        {{ 'team.misc.text'|trans|raw }}
+        <div class="row g-2">
+          <div class="col-12">
+            {{ form_row(form.gaeste) }}
+          </div>
+          <div class="col-12">
+            {{ form_row(form.bemerkung) }}
+          </div>
+        </div>
+
+
+        <h3 class="mt-5 mb-3">{{ 'team.bank.heading'|trans }}</h3>
+        {{ 'team.bank.text'|trans({'curr_cost': curr_cost})|raw }}
+        <div class="row g-2">
+          <div class="col-sm-6">
+            {{ form_row(form.account.iban) }}
+          </div>
+          <div class="col-sm-6">
+            {{ form_row(form.account.bic) }}
+          </div>
+          <div class="col-sm-6">
+            {{ form_row(form.account.bank) }}
+          </div>
+          <div class="col-sm-6">
+            {{ form_row(form.account.kontoinhaber) }}
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-auto">
+            {{ 'team.outro.text'|trans({'curr_cost': curr_cost})|raw }}
+          </div>
+        </div>      
+
+        <div class="row mt-5 justify-content-center">
+          <div class="col-auto">
+            {{ form_row(form.submit) }}
+          </div>
+        </div>
+
+        {{ form_rest(form) }}
+
+      {{ form_end(form) }}
+
+    </div>
+    {# 
+    <script>
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script> 
+    <script src="{{ asset('js/script.js') }}"></script>
+    #}
+{% endblock %}

@@ -1,0 +1,125 @@
+site.title: |
+    SWK Pfingstturnier 2024
+
+team.register.title: |
+    Team registration
+
+team.summary.title: |
+    Team summary
+
+team.heading: |
+    SWK Pentecost Tournament
+
+team.intro.heading: |
+    Registration form for external teams
+
+team.intro.text: |
+    <p>Welcome to the Schwarz-Weiß Köln 2024 Pentecost tournament. From May 18th to 20th, 2024, the tournament will take place at the SWK facility in the north of Cologne. External teams, i.e. our guests, can be registered using this form.</p>
+
+    <p>Please fill out all data carefully. Many of the fields listed are <strong>mandatory</strong> and must be filled out correctly before submitting the form. After successful completion, the contact person specified below will receive a summary of the registration by email.</p>
+
+
+team.intro.errors: |
+    Input error - please fix!
+
+team.info.heading: |
+    Teaminformation
+
+team.info.text: |
+    <p>Please enter the club name, age group and expected arrival time (Fri or Sat, approximate time) of the team to be registered. Optionally, you can also enter a team name.</p>
+
+team.kontakt.heading: |
+    Contact person
+
+team.kontakt.text: |
+    <p>The contact person is the person who usually registers the team, but also accompanies them on site. We will also send this person a confirmation of registration by email.</p>
+
+team.verpflegung.heading: |
+    Catering
+
+team.verpflegung.text: |
+    <p>Please indicate how we should plan the catering: How many players want a vegan or meat-based diet? What about the supervisors? (Please only enter whole numbers.)</p>
+
+team.verpflegung.kosten: |
+    Total <span id="s0">{cnt_spieler}</span> players, <span id="s1">{cnt_betreuer}</span> supervisors - total cost: € <span id="m0">{curr_cost}</span>
+
+team.bilder.heading: |
+    Pictures (optional)
+
+team.bilder.text: |
+    <p>We need a current logo from you (for the schedule, etc.) as well as a team photo that we would like to use on our <a href="https://www.instagram.com/kkht_pfingsten/" target="_blank">Instagram channel</a> - we always present all participating teams there. If you don't want that, just leave out the team photo.</p>
+
+
+team.misc.heading: |
+    Miscellaneous
+
+team.misc.text: |
+    <p>Here you can indicate whether there are any other camping guests accompanying the team. We cannot plan any meals etc. for them, but we would like to be informed so that we can ensure that the capacity of the campsite is sufficient. You can leave any other comments in the comments section. It is important that you state how many caravans or campervans you would like to bring, including any guests (we have to check whether this is all possible and will give you feedback).</p>
+
+team.bank.heading: |
+    Bank details for SEPA direct debit
+
+team.bank.text: |
+    <p>We will collect the total amount for the booked catering packages from a bank account via the <strong>Blackstars e.V.</strong>. For this we need a corresponding SEPA mandate. The collection will not take place before May 12, 2024.</p>
+
+    <p>I hereby authorize <strong>Blackstars e.V.</strong> to collect the resulting total amount of <strong>€ <span id="m1">{curr_cost}</span></strong> from the account stated below.</p>
+
+team.outro.text: |
+    <p>By submitting this form, I am bindingly registering the above-named player. I explicitly agree to the debiting of the participation fee of <strong>€ <span id="m2">{curr_cost}</span></strong> from the bank account mentioned. I am aware that in the event of a serious violation of the rules of conduct (e.g. alcohol consumption), I may have to pick up the player at the request of the organizing team.<p>
+
+
+# =================================================
+
+team.summary.text: |
+    <p>Thank you for registering team <strong>{team_name} ({team_ak})</strong> for the SWK Pentecost 2024 tournament.</p>
+
+    <p>We have sent an email to the contact address provided ({kontakt_email}). If you have any questions, please contact the organization team at <a href="mailto:pfingsten@kkht.de">pfingsten@kkht.de</a>.</p>
+
+# =================================================
+
+label.verein: Club
+placeholder.verein: Name of club
+
+label.altersklasse: Age group    
+label.choose: Select...
+label.wU12:	wU12
+label.mU12:	mU12
+label.wU14: wU14
+label.mU14: mU14
+
+label.ankunftszeit: Arrival time
+placeholder.ankunftszeit: Arrival time (ca.)
+
+label.teamname: Team name
+placeholder.teamname: Team name (optionl)
+
+label.vorname: First name
+placeholder.vorname: First name
+label.nachname: Last name
+placeholder.nachname: Last name
+label.email: Email
+placeholder.email: name@example.com
+label.phone: Phone
+placeholder.phone: +49 172 9973186
+
+label.spieler.vegan: Player vegan
+label.spieler.fleisch: Player meat
+label.betreuer.vegan: Supervisor vegan
+label.betreuer.fleisch: Supervisor meat
+placeholder.anzahl: Number
+
+label.gaeste: Number of guests
+placeholder.gaeste: Number (optional)
+label.bemerkung: Remark
+placeholder.bemerkung: Remark (optional)
+
+label.iban: IBAN
+placeholder.iban: DE...
+label.bic: BIC
+placeholder.bic: BIC
+label.bank: Bank
+placeholder.bank: Name of bank
+label.kontoinhaber: Account holder
+placeholder.kontoinhaber: First name Last name
+
+label.submit: Submit

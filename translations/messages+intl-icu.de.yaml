@@ -1,0 +1,123 @@
+site.title: |
+    SWK Pfingstturnier 2024
+
+team.register.title: |
+    Team Anmeldung
+
+team.summary.title: |
+    Team Zusammenfassung
+
+team.heading: |
+    SWK Pfingstturnier
+
+team.intro.heading: |
+    Anmeldeformular für externe Teams
+
+team.intro.text:
+    <p>Herzlich Willkommen beim Pfingstturnier 2024 von Schwarz-Weiß Köln. Vom 18.-20. Mai 2024 wird auf der SWK-Anlage im Kölner Norden "gezockt". Mit diesem Formular können externe Teams, also unsere Gäste, angemeldet werden.</p>
+
+    <p>Bitte fülle alle Daten gewissenhaft aus. Viele aufgeführten Felder sind <strong>Pflichtfelder</strong>, müssen also vor dem Absenden des Formulars korrekt befüllt sein. Nach erfolgreichem Abschluss erhält die unten anzugebende Kontaktperson eine Zusammenfassung der Anmeldung per Email.</p>
+
+team.intro.errors: |
+    Fehler bei der Eingabe - bitte beheben!
+
+team.info.heading: |
+    Teaminformation
+
+team.info.text: |
+    <p>Bitte gib Vereinsnamen, Altersklasse und voraussichtliche Ankunftszeit (Fr oder Sa, ungefähre Uhrzeit) des anzumeldenden Teams an. Optional kann auch ein Teamname eingegeben werden.</p>
+
+team.kontakt.heading: |
+    Kontaktperson
+
+team.kontakt.text: |
+    <p>Die Kontaktperson ist die Person, die i.d.R. das Team anmelde, aber vor allem dann auch vor Ort begleitet. An diese Person senden wir auch eine Bestätigung der Anmeldung per Email.</p>
+
+team.verpflegung.heading: |
+    Verpflegung
+
+team.verpflegung.text: |
+    <p>Bitte gib an, wie wir die Verpflegung planen sollen: Wieviele Spieler:innen wünschen eine vegane bzw. eine fleischhaltige Ernährung? Wie sieht es bei den Betreuer:innen aus? (Bitte nur ganze Zahlen eingeben.)</p>
+
+team.verpflegung.kosten: |
+    Insgesamt <span id="s0">{cnt_spieler}</span> Spieler:innen, <span id="s1">{cnt_betreuer}</span> Betreuer:innen - Gesamtkosten: € <span id="m0">{curr_cost}</span>
+
+team.bilder.heading: |
+    Bilder (optional)
+
+team.bilder.text: |
+    <p>Wir brauchen von Euch ein aktuelles Logo (für den Spielplan etc.) sowie ein Teambild, das wir gerne auf unserem <a href="https://www.instagram.com/kkht_pfingsten/" target="_blank">Instagram-Kanal</a> verwenden würden - da stellen wir immer alle teilnehmenden Teams vor. Wenn ihr das nicht wollt, lasst das Teambild einfach weg.</p>
+
+team.misc.heading: |
+    Sonstiges
+
+team.misc.text: |
+    <p>Hier kann angegeben werden, ob es weitere Campinggäste gibt, die das Team begleiten. Für diese können wir keine Verpflegung etc. einplanen, würden aber gerne informiert werden, damit wir sicherstellen können, dass die Kapazität des Campinggeländes ausreicht. In den Bemerkungen könnt ihr sonstige Kommentare hinterlassen. Wichtig wäre, dass ihr angebt, mit wie vielen Wohnwagen oder Campervans ihr inklusive etwaiger Gäste kommen möchtet (wir müssen prüfen, ob das alles geht und geben Euch Rückmeldung).</p>
+
+team.bank.heading: |
+    Bankdaten für SEPA Einzug
+
+team.bank.text: |
+    <p>Wir werden die Gesamtsumme für die gebuchten Verpflegungspakete über den Verein <strong>Blackstars e.V.</strong> von einem Bankkonto einziehen. Dazu benötigen wir eine entsprechendes SEPA-Mandat. Der Einzug wird nicht vor dem 12.05.2024 erfolgen.</p>
+
+    <p>Hiermit ermächtige ich den <strong>Blackstars e.V.</strong> einmalig den resultierenden Gesamtbetrag in Höhe von <strong>€ <span id="m1">{curr_cost}</span></strong> von dem unten genannten Konto einzuziehen.</p>
+
+team.outro.text: |
+    <p>Mit dem Absenden dieses Formulars melde ich den oben genannte Spieler/die oben genannte Spielerin verbindlich an. Ich stimme dem Einzug der Teilnahmegebühr in Höhe von <strong>€ <span id="m2">{curr_cost}</span></strong> von dem genannten Bankkonto explizit zu. Ich weiß, dass ich den Spieler/die Spielerin im Falle eines schwerwiegenden Verstoßes gegen die Verhaltensregeln (z.B. Alkoholkonsum) nach Aufforderung des Organisationsteams ggf. abholen muss.
+    <p>
+
+# =================================================
+
+team.summary.text: |
+    <p>Danke für die Anmeldung des Team <strong>{team_name} ({team_ak})</strong> für das SWK Pfingstturnier.</p>
+
+    <p>Wir haben eine Email an die genannte Kontaktadresse ({kontakt_email}) gesendet. Bei Rückfragen melde Dich bitte beim Orga Team unter <a href="mailto:pfingsten@kkht.de">pfingsten@kkht.de</a>.</p>
+
+# =================================================
+
+label.verein: Verein
+placeholder.verein: Vereinsname
+
+label.altersklasse: Altersklasse
+label.choose: Wählen...
+label.wU12:	wU12
+label.mU12:	mU12
+label.wU14: wU14
+label.mU14: mU14
+
+label.ankunftszeit: Ankunftszeit
+placeholder.ankunftszeit: Ankunftszeit (ca.)
+
+label.teamname: Teamname
+placeholder.teamname: Teamname (optionl)
+
+label.vorname: Vorname
+placeholder.vorname: Vorname
+label.nachname: Nachname
+placeholder.nachname: Nachname
+label.email: Email
+placeholder.email: name@example.com
+label.phone: Telefon
+placeholder.phone: +49 172 9973186
+
+label.spieler.vegan: Spieler:innen vegan
+label.spieler.fleisch: Spieler:innen Fleisch
+label.betreuer.vegan: Betreuer:innen vegan
+label.betreuer.fleisch: Betreuer:innen Fleisch
+placeholder.anzahl: Anzahl
+
+label.gaeste: Anzahl Gäste
+placeholder.gaeste: Anzahl (optional)
+label.bemerkung: Bemerkung
+placeholder.bemerkung: Bemerkung (optional)
+
+label.iban: IBAN
+placeholder.iban: DE...
+label.bic: BIC
+placeholder.bic: BIC
+label.bank: Bank
+placeholder.bank: Name der Bank
+label.kontoinhaber: Kontoinhaber:in
+placeholder.kontoinhaber: Vorname Nachname
+
+label.submit: Absenden

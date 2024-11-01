@@ -1,0 +1,29 @@
+services:
+  db:
+    image: mariadb:latest
+    volumes:
+      - ./data/mariadb:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MARIADB_ROOT_PASSWORD: adminpwd
+      MARIADB_DATABASE: swk
+      MARIADB_USER: swk
+      MARIADB_PASSWORD: swk 
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+  mailpit:
+    image: axllent/mailpit
+    ports:
+      - 8025:8025
+      - 1025:1025
+    volumes: 
+      - ./data/mailpit:/var/data
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+      MP_DATABASE: /var/data/mailpit.db
+
+

@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ parent() }} | Anmeldung {% endblock %}
+{% block body %}
+    <!-- md container breaks if smaller than 768-->
+    <div class="container">
+      <div class="row text-center justify-content-center mb-5">
+        <div class="col-auto gy-3">
+          <img src="{{ asset('pics/KKHT-logo.png') }}" alt="KKHT SWK Logo" class="kkhtlogo">
+          <h1>SWK Pfingstturnier</h1> <span class="number">2024</span>
+        </div>
+      </div>
+
+      <h2>Anmeldeformular für SWK Spieler:innen</h2>
+      <p>Herzlich Willkommen beim Pfingstturnier 2024 von Schwarz-Weiß Köln. 
+      Vom 18.-20. Mai 2024 wird auf der SWK-Anlage im Kölner Norden "gezockt".
+      Mit diesem Formular können SWK-Spielerinnen und -Spieler angemeldet werden.</p>
+
+      <p>Bitte fülle alle Daten gewissenhaft aus. Alle aufgeführten Felder sind 
+      <strong>Pflichtfelder</strong>, müssen also vor dem Absenden des Formulars 
+      korret befüllt sein. Nach 
+      erfolgreichem Abschluss erhält die unten anzugebende Kontaktperson eine 
+      Zusammenfassung der Anmeldung per Email.</p>
+
+      {% if hasErrors %}
+      <p style="color: #dc3545"><strong>Fehler bei der Eingabe - bitte beheben!</strong></p>
+      {% endif %}
+
+
+      {{ form_start(form) }}
+
+        <h3 class="mt-5 mb-3">Spieler:in</h3>
+        <p>Bitte gib Namen, Altersklasse und Ernährungpräferenzen des anzumeldenden 
+        Spielers bzw. der anzumeldenden Spielerin an.</p>
+        <div class="row g-2">
+          <div class="col-sm-6 col-lg-3">
+            {{ form_row(form.vorname) }}
+          </div>
+          <div class="col-sm-6  col-lg-3">
+            {{ form_row(form.nachname) }}
+          </div>
+          <div class="col-sm-6  col-lg-3">
+            {{ form_row(form.altersklasse) }}
+          </div>
+          <div class="col-sm-6  col-lg-3">
+            {{ form_row(form.nahrung) }}
+          </div>
+        </div>
+
+        <h3 class="mt-5 mb-3">Kontaktperson</h3>
+        <p>Die Kontaktperson ist die Person, die i.d.R. das Kind anmeldet und die im Notfall 
+        telefonisch erreichbar ist. An diese Person senden wir auch eine Bestätigung der 
+        Anmeldung per Email.</p>
+        <div class="row g-2">
+          <div class="col-sm-6 col-lg-3">
+            {{ form_row(form.kontakt.vorname) }}
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            {{ form_row(form.kontakt.nachname) }}
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            {{ form_row(form.kontakt.email) }}
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            {{ form_row(form.kontakt.phone) }}
+          </div>
+        </div>
+
+        <h3 class="mt-5 mb-3">Bankdaten für SEPA Einzug</h3>
+        <p>Hiermit ermächtige ich den <strong>Blackstars e.V.</strong> einmalig den resultierenden 
+        Gesamtbetrag in Höhe von <strong>€ 90</strong> von dem unten genannten Konto einzuziehen. Der 
+        Einzug wird nicht vor dem 12.05.2024 erfolgen.</p>
+        <div class="row g-2">
+          <div class="col-sm-6">
+            {{ form_row(form.account.iban) }}
+          </div>
+          <div class="col-sm-6">
+            {{ form_row(form.account.bic) }}
+          </div>
+          <div class="col-sm-6">
+            {{ form_row(form.account.bank) }}
+          </div>
+          <div class="col-sm-6">
+            {{ form_row(form.account.kontoinhaber) }}
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-auto">
+            <p> Mit dem Absenden dieses Formulars melde ich den oben genannte 
+            Spieler/die oben genannte Spielerin verbindlich an. Ich stimme dem 
+            Einzug der Teilnahmegebühr in Höhe von <strong>€ 90</strong> von dem genannten Bankkonto 
+            explizit zu. Ich weiß, dass ich den Spieler/die Spielerin im Falle eines
+            schwerwiegenden Verstoßes gegen die Verhaltensregeln (z.B. Alkoholkonsum) nach Aufforderung
+            des Organisationsteams ggf. abholen muss.</p>
+          </div>
+        </div>      
+
+        <div class="row mt-5 justify-content-center">
+          <div class="col-auto">
+            {{ form_row(form.submit) }}
+          </div>
+        </div>
+
+        {{ form_rest(form) }}
+
+      {{ form_end(form) }}
+
+    </div>
+    {# 
+    <script>
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script> 
+    <script src="{{ asset('js/script.js') }}"></script>
+    #}
+{% endblock %}
