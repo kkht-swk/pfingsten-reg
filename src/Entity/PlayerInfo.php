@@ -31,7 +31,7 @@ class PlayerInfo
     private ?string $nachname = null;
 
     #[ORM\Column(length: 31)]
-    #[Assert\NotBlank(message: 'error.alterklasse.notblank')]
+    #[Assert\NotBlank(message: 'error.altersklasse.notblank')]
     private ?string $altersklasse = null;
 
     #[ORM\Column(length: 31)]
