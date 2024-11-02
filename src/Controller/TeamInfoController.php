@@ -239,7 +239,7 @@ EOD;
 
             // Move the file to the directory where brochures are stored
             try {
-                $file->move($this->getParameter('upload_dir'),$newFilename);
+                $file->move($this->getParameter('app.upload_dir'),$newFilename);
             } catch (FileException $e) {
                 // ... handle exception if something happens during file upload
                 return null;
