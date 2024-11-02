@@ -115,7 +115,7 @@ placeholder.bemerkung: Remark (optional)
 
 label.iban: IBAN
 placeholder.iban: DE...
-label.bic: BIC
+label.bic: BIC (in case of non-DE IBAN)
 placeholder.bic: BIC
 label.bank: Bank
 placeholder.bank: Name of bank

@@ -20,8 +20,15 @@ class BankAccount
     private ?string $iban = null;
 
     #[ORM\Column(length: 63)]
-    #[Assert\NotBlank(message: 'error.bic.notblank')]
-    #[Assert\Bic(message: 'error.bic.valid')]
+    #[Assert\When(
+        expression: 'this.germanIban() == false',
+        constraints: [
+            new Assert\NotBlank(message: 'error.bic.notblank'),
+            new Assert\Bic(message: 'error.bic.valid')
+        ]
+    )]
+    // #[Assert\NotBlank(message: 'error.bic.notblank')]
+    // #[Assert\Bic(message: 'error.bic.valid')]
     private ?string $bic = null;
 
     #[ORM\Column(length: 63)]
@@ -31,6 +38,20 @@ class BankAccount
     #[ORM\Column(length: 63)]
     #[Assert\NotBlank(message: 'error.kontoinhaber.notblank')]
     private ?string $kontoinhaber = null;
+
+    public function germanIban(): bool {
+
+        if ($this->iban == null) {
+            return false;
+        }
+
+        $prefix = substr(str_replace(' ', '', mb_strtoupper($this->iban)), 0, 2);
+
+        if ("DE" === $prefix) {
+            return true;
+        }
+        return false;
+    }
 
     public function getId(): ?int
     {
