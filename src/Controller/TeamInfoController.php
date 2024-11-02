@@ -118,7 +118,7 @@ EOD;
 $text_en = <<< EOD
 Hi,
 
-Thank you for registering team $vn ($ak) for the SWK Pentecost 2024 tournament!
+Thank you for registering team $vn ($ak) for the SWK Pentecost 2025 tournament!
 
 Below all relevant details
 
@@ -160,7 +160,7 @@ EOD;
 $text_nl = <<< EOD
 Hi,
 
-Bedankt voor het aanmelden van team $vn ($ak) voor het SWK Pinksteren 2024 toernooi!
+Bedankt voor het aanmelden van team $vn ($ak) voor het SWK Pinksteren 2025 toernooi!
 
 Hieronder alle relevante details
 

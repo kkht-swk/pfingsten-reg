@@ -1,5 +1,5 @@
 site.title: |
-    SWK Pfingstturnier 2024
+    SWK Pfingstturnier 2025
 
 team.register.title: |
     Team Anmeldung
@@ -14,7 +14,7 @@ team.intro.heading: |
     Anmeldeformular für externe Teams
 
 team.intro.text:
-    <p>Herzlich Willkommen beim Pfingstturnier 2024 von Schwarz-Weiß Köln. Vom 18.-20. Mai 2024 wird auf der SWK-Anlage im Kölner Norden "gezockt". Mit diesem Formular können externe Teams, also unsere Gäste, angemeldet werden.</p>
+    <p>Herzlich Willkommen beim Pfingstturnier 2025 von Schwarz-Weiß Köln. Vom 7.-9. Juni 2025 wird auf der SWK-Anlage im Kölner Norden "gezockt". Mit diesem Formular können externe Teams, also unsere Gäste, angemeldet werden.</p>
 
     <p>Bitte fülle alle Daten gewissenhaft aus. Viele aufgeführten Felder sind <strong>Pflichtfelder</strong>, müssen also vor dem Absenden des Formulars korrekt befüllt sein. Nach erfolgreichem Abschluss erhält die unten anzugebende Kontaktperson eine Zusammenfassung der Anmeldung per Email.</p>
 
@@ -58,7 +58,7 @@ team.bank.heading: |
     Bankdaten für SEPA Einzug
 
 team.bank.text: |
-    <p>Wir werden die Gesamtsumme für die gebuchten Verpflegungspakete über den Verein <strong>Blackstars e.V.</strong> von einem Bankkonto einziehen. Dazu benötigen wir eine entsprechendes SEPA-Mandat. Der Einzug wird nicht vor dem 12.05.2024 erfolgen.</p>
+    <p>Wir werden die Gesamtsumme für die gebuchten Verpflegungspakete über den Verein <strong>Blackstars e.V.</strong> von einem Bankkonto einziehen. Dazu benötigen wir eine entsprechendes SEPA-Mandat. Der Einzug wird nicht vor dem 01.06.2025 erfolgen.</p>
 
     <p>Hiermit ermächtige ich den <strong>Blackstars e.V.</strong> einmalig den resultierenden Gesamtbetrag in Höhe von <strong>€ <span id="m1">{curr_cost}</span></strong> von dem unten genannten Konto einzuziehen.</p>
 
@@ -89,7 +89,7 @@ label.ankunftszeit: Ankunftszeit
 placeholder.ankunftszeit: Ankunftszeit (ca.)
 
 label.teamname: Teamname
-placeholder.teamname: Teamname (optionl)
+placeholder.teamname: Teamname (optional)
 
 label.vorname: Vorname
 placeholder.vorname: Vorname
