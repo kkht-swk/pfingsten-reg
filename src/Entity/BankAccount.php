@@ -19,7 +19,7 @@ class BankAccount
     #[Assert\Iban(message: 'error.iban.valid')]
     private ?string $iban = null;
 
-    #[ORM\Column(length: 63)]
+    #[ORM\Column(length: 63, nullable: true)]
     #[Assert\When(
         expression: 'this.germanIban() == false',
         constraints: [
