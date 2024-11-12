@@ -103,7 +103,7 @@ class TeamInfoType extends AbstractType
                 'mapped' => false,
 
                 // make it optional so you don't have to re-upload the PDF file
-                // every time you edit the Product details
+                // every time you edit the details
                 'required' => false,
 
                 // unmapped fields can't define their validation using attributes
@@ -146,8 +146,9 @@ class TeamInfoType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => 'label.submit'
             ])
-            
-            ->setDisabled(true)
+
+            // uncomment to at some point in time do not allow any more changes
+            // ->setDisabled(true)
         ;
     }
 
