@@ -39,6 +39,19 @@ class PlayerInfoType extends AbstractType
                     'fleischhaltig' => 'fleischhaltig',
                 ]
             ])
+            ->add('schuhgroesse', ChoiceType::class, [
+                'label' => 'Schuhgröße',
+                'choices'  => [
+                    'Wählen...' => null,
+                    '32-34' => 'xs',
+                    '35-37' => 's',
+                    '38-40' => 'm',
+                    '41-43' => 'l',
+                    '44-46' => 'xl',
+                    '47-49' => 'xxl',
+                    '50-53' => '3xl',
+                ]
+            ])
             ->add('kontakt', KontaktType::class)
             ->add('account', BankAccountType::class)
             ->add('submit', SubmitType::class, [

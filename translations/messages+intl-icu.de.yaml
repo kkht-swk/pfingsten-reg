@@ -42,6 +42,12 @@ team.verpflegung.text: |
 team.verpflegung.kosten: |
     Insgesamt <span id="s0">{cnt_spieler}</span> Spieler:innen, <span id="s1">{cnt_betreuer}</span> Betreuer:innen - Gesamtkosten: € <span id="m0">{curr_cost}</span>
 
+team.schuhgroessen.heading: |
+    Schuhgrößen
+
+team.schuhgroessen.text: |
+    <p>Es gibt mal wieder eine Überraschung! Dafür brauchen wir die Schuhgrößen der angemeldeten Spieler:innen und Betreuer:innen. Bitte gib' in jedem Feld die entsprechende Anzahl an! (Bitte nur ganze Zahlen eingeben.)</p>
+
 team.bilder.heading: |
     Bilder (optional)
 
@@ -104,6 +110,15 @@ label.spieler.vegan: Spieler:innen vegan
 label.spieler.fleisch: Spieler:innen Fleisch
 label.betreuer.vegan: Betreuer:innen vegan
 label.betreuer.fleisch: Betreuer:innen Fleisch
+
+label.shoeSizeXS: 32-34
+label.shoeSizeS: 35-37
+label.shoeSizeM: 38-40
+label.shoeSizeL: 41-43
+label.shoeSizeXL: 44-46
+label.shoeSizeXXL: 47-49
+label.shoeSize3XL: 50-52
+
 placeholder.anzahl: Anzahl
 
 label.gaeste: Anzahl Gäste

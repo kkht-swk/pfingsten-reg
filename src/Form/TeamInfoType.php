@@ -87,6 +87,72 @@ class TeamInfoType extends AbstractType
                 // 'empty_data' => 0
             ])
 
+
+            ->add('shoeSizeXS', IntegerType::class, [
+                'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
+                'label' => 'label.shoeSizeXS',
+                'constraints' => [
+                    new NotBlank([], 'error.anzahl.notblank' ),
+                    new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
+                ],
+                // 'empty_data' => 0
+            ])
+            ->add('shoeSizeS', IntegerType::class, [
+                'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
+                'label' => 'label.shoeSizeS',
+                'constraints' => [
+                    new NotBlank([], 'error.anzahl.notblank' ),
+                    new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
+                ],
+                // 'empty_data' => 0
+            ])
+            ->add('shoeSizeM', IntegerType::class, [
+                'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
+                'label' => 'label.shoeSizeM',
+                'constraints' => [
+                    new NotBlank([], 'error.anzahl.notblank' ),
+                    new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
+                ],
+                // 'empty_data' => 0
+            ])
+            ->add('shoeSizeL', IntegerType::class, [
+                'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
+                'label' => 'label.shoeSizeL',
+                'constraints' => [
+                    new NotBlank([], 'error.anzahl.notblank' ),
+                    new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
+                ],
+                // 'empty_data' => 0
+            ])
+            ->add('shoeSizeXL', IntegerType::class, [
+                'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
+                'label' => 'label.shoeSizeXL',
+                'constraints' => [
+                    new NotBlank([], 'error.anzahl.notblank' ),
+                    new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
+                ],
+                // 'empty_data' => 0
+            ])
+            ->add('shoeSizeXXL', IntegerType::class, [
+                'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
+                'label' => 'label.shoeSizeXXL',
+                'constraints' => [
+                    new NotBlank([], 'error.anzahl.notblank' ),
+                    new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
+                ],
+                // 'empty_data' => 0
+            ])
+            ->add('shoeSize3XL', IntegerType::class, [
+                'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
+                'label' => 'label.shoeSize3XL',
+                'constraints' => [
+                    new NotBlank([], 'error.anzahl.notblank' ),
+                    new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
+                ],
+                // 'empty_data' => 0
+            ])
+
+
             ->add('gaeste', IntegerType::class, [
                 'label' => 'label.gaeste',
                 'attr' => [ 'placeholder' => 'placeholder.gaeste' ],

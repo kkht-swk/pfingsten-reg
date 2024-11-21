@@ -38,6 +38,10 @@ class PlayerInfo
     #[Assert\NotBlank(message: 'error.nahrung.notblank')]
     private ?string $nahrung = null;
 
+    #[ORM\Column(length: 31)]
+    #[Assert\NotBlank(message: 'error.schuhgroesse.notblank')]
+    private ?string $schuhgroesse = null;
+
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Kontakt $kontakt = null;
@@ -113,6 +117,18 @@ class PlayerInfo
     public function setNahrung(string $nahrung): static
     {
         $this->nahrung = $nahrung;
+
+        return $this;
+    }
+
+    public function getSchuhgroesse(): ?string
+    {
+        return $this->schuhgroesse;
+    }
+
+    public function setSchuhgroesse(string $schuhgroesse): static
+    {
+        $this->schuhgroesse = $schuhgroesse;
 
         return $this;
     }

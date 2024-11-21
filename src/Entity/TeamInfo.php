@@ -79,6 +79,34 @@ class TeamInfo
     #[ORM\JoinColumn(nullable: false)]
     private ?BankAccount $account = null;
 
+    #[ORM\Column]
+    #[Assert\NotBlank(message: 'error.anzahl.notblank')]
+    private ?int $shoeSizeXS = null;
+
+    #[ORM\Column]
+    #[Assert\NotBlank(message: 'error.anzahl.notblank')]
+    private ?int $shoeSizeS = null;
+
+    #[ORM\Column]
+    #[Assert\NotBlank(message: 'error.anzahl.notblank')]
+    private ?int $shoeSizeM = null;
+
+    #[ORM\Column]
+    #[Assert\NotBlank(message: 'error.anzahl.notblank')]
+    private ?int $shoeSizeL = null;
+
+    #[ORM\Column]
+    #[Assert\NotBlank(message: 'error.anzahl.notblank')]
+    private ?int $shoeSizeXL = null;
+
+    #[ORM\Column]
+    #[Assert\NotBlank(message: 'error.anzahl.notblank')]
+    private ?int $shoeSizeXXL = null;
+
+    #[ORM\Column]
+    #[Assert\NotBlank(message: 'error.anzahl.notblank')]
+    private ?int $shoeSize3XL = null;
+
 
     public function __construct() {
         $this->createdAt = new DateTimeImmutable();
@@ -290,5 +318,89 @@ class TeamInfo
             intval($this->betreuerVegan) +
             intval($this->betreuerFleisch)
         );
+    }
+
+    public function getShoeSizeXS(): ?int
+    {
+        return $this->shoeSizeXS;
+    }
+
+    public function setShoeSizeXS(int $shoeSizeXS): static
+    {
+        $this->shoeSizeXS = $shoeSizeXS;
+
+        return $this;
+    }
+
+    public function getShoeSizeS(): ?int
+    {
+        return $this->shoeSizeS;
+    }
+
+    public function setShoeSizeS(int $shoeSizeS): static
+    {
+        $this->shoeSizeS = $shoeSizeS;
+
+        return $this;
+    }
+
+    public function getShoeSizeM(): ?int
+    {
+        return $this->shoeSizeM;
+    }
+
+    public function setShoeSizeM(int $shoeSizeM): static
+    {
+        $this->shoeSizeM = $shoeSizeM;
+
+        return $this;
+    }
+
+    public function getShoeSizeL(): ?int
+    {
+        return $this->shoeSizeL;
+    }
+
+    public function setShoeSizeL(int $shoeSizeL): static
+    {
+        $this->shoeSizeL = $shoeSizeL;
+
+        return $this;
+    }
+
+    public function getShoeSizeXL(): ?int
+    {
+        return $this->shoeSizeXL;
+    }
+
+    public function setShoeSizeXL(int $showSizeXL): static
+    {
+        $this->shoeSizeXL = $showSizeXL;
+
+        return $this;
+    }
+
+    public function getShoeSizeXXL(): ?int
+    {
+        return $this->shoeSizeXXL;
+    }
+
+    public function setShoeSizeXXL(int $shoeSizeXXL): static
+    {
+        $this->shoeSizeXXL = $shoeSizeXXL;
+
+        return $this;
+    }
+
+    public function getShoeSize3XL(): ?int
+    {
+        return $this->shoeSize3XL;
+    }
+
+    public function setShoeSize3XL(int $shoeSize3XL): static
+    {
+        $this->shoeSize3XL = $shoeSize3XL;
+
+        return $this;
     }
 }

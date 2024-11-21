@@ -75,6 +75,32 @@
           'curr_cost': curr_cost,
           })|raw }}</strong></p>
 
+        <h3 class="mt-5 mb-3">{{ 'team.schuhgroessen.heading'|trans }}</h3>
+        {{ 'team.schuhgroessen.text'|trans|raw }}
+        <div class="row g-2">
+          <div class="col-4 col-sm-3 col-lg-2">
+            {{ form_row(form.shoeSizeXS) }}
+          </div>
+          <div class="col-4 col-sm-3 col-lg-2">
+            {{ form_row(form.shoeSizeS) }}
+          </div>
+          <div class="col-4 col-sm-3 col-lg-2">
+            {{ form_row(form.shoeSizeM) }}
+          </div>
+          <div class="col-4 col-sm-3 col-lg-2">
+            {{ form_row(form.shoeSizeL) }}
+          </div>
+          <div class="col-4 col-sm-3 col-lg-2">
+            {{ form_row(form.shoeSizeXL) }}
+          </div>
+          <div class="col-4 col-sm-3 col-lg-2">
+            {{ form_row(form.shoeSizeXXL) }}
+          </div>
+          <div class="col-4 col-sm-3 col-lg-2">
+            {{ form_row(form.shoeSize3XL) }}
+          </div>
+        </div>
+
         <h3 class="mt-5 mb-3">{{ 'team.bilder.heading'|trans }}</h3>
         {{ 'team.bilder.text'|trans|raw }}
         <div class="row g-2 align-items-center mb-3">
