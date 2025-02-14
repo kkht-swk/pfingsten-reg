@@ -139,6 +139,9 @@ body {
     -ms-overflow-x: hidden;
     overflow-x: hidden;
 }
+p {
+    text-align: justify;
+}
 
 .container {
     max-width: 1140px;
