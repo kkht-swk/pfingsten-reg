@@ -25,13 +25,13 @@ team.info.heading: |
     Teaminformation
 
 team.info.text: |
-    <p>Bitte gib Vereinsnamen, Altersklasse und voraussichtliche Ankunftszeit (Fr oder Sa, ungefähre Uhrzeit) des anzumeldenden Teams an. Optional kann auch ein Teamname eingegeben werden.</p>
+    <p>Bitte gib Vereinsnamen, Altersklasse und <i>voraussichtliche</i> Ankunftszeit (Fr oder Sa, ungefähre Uhrzeit) des anzumeldenden Teams an. Optional kann auch ein Teamname eingegeben werden.</p>
 
 team.kontakt.heading: |
     Kontaktperson
 
 team.kontakt.text: |
-    <p>Die Kontaktperson ist die Person, die i.d.R. das Team anmelde, aber vor allem dann auch vor Ort begleitet. An diese Person senden wir auch eine Bestätigung der Anmeldung per Email.</p>
+    <p>Die Kontaktperson ist die Person, die i.d.R. das Team anmeldet, aber vor allem dann auch vor Ort begleitet. An diese Person senden wir auch eine Bestätigung der Anmeldung per Email.</p>
 
 team.verpflegung.heading: |
     Verpflegung
@@ -52,7 +52,7 @@ team.misc.heading: |
     Sonstiges
 
 team.misc.text: |
-    <p>Hier kann angegeben werden, ob es weitere Campinggäste gibt, die das Team begleiten. Für diese können wir keine Verpflegung etc. einplanen, würden aber gerne informiert werden, damit wir sicherstellen können, dass die Kapazität des Campinggeländes ausreicht. In den Bemerkungen könnt ihr sonstige Kommentare hinterlassen. Wichtig wäre, dass ihr angebt, mit wie vielen Wohnwagen oder Campervans ihr inklusive etwaiger Gäste kommen möchtet (wir müssen prüfen, ob das alles geht und geben Euch Rückmeldung).</p>
+    <p>Hier kann angegeben werden, ob es weitere <i>Campinggäste</i> gibt, die das Team begleiten. Für diese können wir keine Verpflegung etc. einplanen, würden aber gerne informiert werden, damit wir sicherstellen können, dass die Kapazität des Campinggeländes ausreicht. In den Bemerkungen könnt ihr sonstige Kommentare hinterlassen. Wichtig wäre, dass ihr angebt, mit wie vielen Wohnwagen oder Campervans ihr inklusive etwaiger Gäste kommen möchtet (wir müssen prüfen, ob das alles geht und geben Euch Rückmeldung).</p>
 
 team.bank.heading: |
     Bankdaten für SEPA Einzug
@@ -106,7 +106,7 @@ label.betreuer.vegan: Betreuer:innen vegan
 label.betreuer.fleisch: Betreuer:innen Fleisch
 placeholder.anzahl: Anzahl
 
-label.gaeste: Anzahl Gäste
+label.gaeste: Zusätzliche Campinggäste
 placeholder.gaeste: Anzahl (optional)
 label.bemerkung: Bemerkung
 placeholder.bemerkung: Bemerkung (optional)
