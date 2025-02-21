@@ -32,6 +32,14 @@ class TeamInfoRepository extends ServiceEntityRepository
         }
     }
 
+    public function delete(TeamInfo $ti, bool $flush = false): void 
+    {
+        $this->getEntityManager()->remove($ti);
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+    
     //    /**
     //     * @return TeamInfo[] Returns an array of TeamInfo objects
     //     */

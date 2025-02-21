@@ -139,7 +139,7 @@ Dann die assets für die Produktion komplieren, sowie das richtige Environment i
 
 ```
 bin/console asset-map:compile
-APP_ENV=prod APP_DEBUG=0 bin/console dotenv:dump
+composer dump-env prod
 ```
 
 Und den Cache leeren - empfiehlt sich nach jeder relevanten Änderung
