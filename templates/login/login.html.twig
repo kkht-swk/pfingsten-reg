@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ parent() }} | Anmeldung {% endblock %}
+{% block body %}
+    <!-- md container breaks if smaller than 768-->
+    <div class="container">
+      <div class="row text-center justify-content-center mb-5">
+        <div class="col-auto gy-3">
+          <img src="{{ asset('pics/KKHT-logo.png') }}" alt="KKHT SWK Logo" class="kkhtlogo">
+          <h1 class="mt-2">SWK Pfingstturnier</h1> <span class="number">2025</span>
+        </div>
+      </div>
+
+      <h2>Login</h2>
+
+      <form method="post">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <label for="username">Benutzername</label>
+        <input type="text" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
+        <label for="password">Passwort</label>
+        <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+
+        <input type="hidden" name="_csrf_token"
+               value="{{ csrf_token('authenticate') }}"
+        >
+        <button class="btn btn-lg btn-primary" type="submit">
+            Einloggen
+        </button>
+      </form>
+    </div>
+{% endblock %}

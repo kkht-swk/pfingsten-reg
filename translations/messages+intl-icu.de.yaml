@@ -16,7 +16,7 @@ team.intro.heading: |
 team.intro.text:
     <p>Herzlich Willkommen beim Pfingstturnier 2025 von Schwarz-Weiß Köln. Vom 7.-9. Juni 2025 wird auf der SWK-Anlage im Kölner Norden "gezockt". Mit diesem Formular können externe Teams, also unsere Gäste, angemeldet werden.</p>
 
-    <p>Bitte fülle alle Daten gewissenhaft aus. Viele aufgeführten Felder sind <strong>Pflichtfelder</strong>, müssen also vor dem Absenden des Formulars korrekt befüllt sein. 
+    <p>Bitte fülle alle Daten gewissenhaft aus. Viele der aufgeführten Felder sind <strong>Pflichtfelder</strong>, müssen also vor dem Absenden des Formulars korrekt befüllt sein. 
     Nach erfolgreichem Abschluss erhält die unten anzugebende Kontaktperson eine Zusammenfassung der Anmeldung per Email. Diese Email enthält einen Link,
     über den bis ca. 14 Tage vor dem Turnier auch noch Anpassungen vorgenommen werden können!</p>
 
@@ -71,9 +71,12 @@ team.outro.text: |
 # =================================================
 
 team.summary.text: |
-    <p>Danke für die Anmeldung des Team <strong>{team_name} ({team_ak})</strong> für das SWK Pfingstturnier.</p>
+    <p>Danke für die Anmeldung des Teams <strong>{team_name} ({team_ak})</strong> für das SWK Pfingstturnier.</p>
 
-    <p>Wir haben eine Email an die genannte Kontaktadresse ({kontakt_email}) gesendet. Bei Rückfragen melde Dich bitte beim Orga Team unter <a href="mailto:pfingsten@kkht.de">pfingsten@kkht.de</a>.</p>
+    <p>Wir haben eine Email an die angegebene Kontaktadresse ({kontakt_email}) gesendet. Darin enthalten ist ein Link,
+    über den bis ca. 14 Tage vor Beginn des Turniers Änderungen möglich sind.</p>
+    
+    <p>Bei Rückfragen melde Dich bitte beim Orga Team unter <a href="mailto:pfingsten@kkht.de">pfingsten@kkht.de</a>.</p>
 
 # =================================================
 

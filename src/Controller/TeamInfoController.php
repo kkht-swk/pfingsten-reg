@@ -267,26 +267,24 @@ EOD;
             $repos->save($ti, true);
     }
 
-    #[Route('/team/register', name: 'app_team_home')]
-    #[Route('/team/register/{hashkey}', name: 'app_team_home_edit')]
-    #[Route('/team/master/{hashkey}', name: 'app_team_home_master')]
+    #[Route('/team/register', name: 'app_team_new_default')]
+    #[Route('/team/register/{hashkey}', name: 'app_team_edit_default')]
+    #[Route('/team/list', name: 'app_team_list_default')]
+    #[Route('/team/master/{hashkey}', name: 'app_team_master_default')]
+    #[Route('/team/delete/{hashkey}', name: 'app_team_delete_default')]
+    #[Route('/team/csv', name: 'app_team_csv_default')]
     public function index(
         ?string $hashkey,
         Request $request) : Response
     {
-        $locale = $request->getLocale();
-        if ($hashkey) {
-            return $this->redirectToRoute('app_team_edit', [ 
-                'hashkey' => $hashkey,
-                '_locale' => $locale
-            ]);
+        $locale = $request->getLocale() ?: 'de';
+        $route = $request->attributes->get('_route');
+        $newroute = str_replace('_default', '', $route);
 
-        }
-        else {
-            return $this->redirectToRoute('app_team_new', [ 
-                '_locale' => $locale
-            ]);
-        }
+        return $this->redirectToRoute($newroute, [ 
+            'hashkey' => $hashkey,
+            '_locale' => $locale
+        ]);
     }
         
 
@@ -339,9 +337,13 @@ EOD;
             if ($form->isValid()) {
 
                 $this->saveTeamInfo($form, $ti, $repos);
+
+                // if I am masering, just return to list
                 if ($request->attributes->get('_route') === 'app_team_master') {
                     return $this->redirectToRoute('app_team_list');
                 }
+
+                // else: send email and show summary
                 $this->sendEmail($ti, $request->getLocale());
                 return $this->redirectToRoute('app_team_summary', [
                     'hashkey' => $ti->getHashkey()] );
@@ -375,8 +377,9 @@ EOD;
         }
     }
 
-    #[Route('/team/list', name: 'app_team_list')]
-    #[Route('/{_locale}/team/list', name: 'app_team_list')]
+    #[Route('/{_locale}/team/list', name: 'app_team_list',
+        requirements: [ '_locale' => 'de' ],
+    )]
     public function list(TeamInfoRepository $repos): Response
     {
         $altersklassen = [ 'wU12', 'mU12', 'wU14', 'mU14' ];
@@ -395,19 +398,17 @@ EOD;
 
     }
 
-    #[Route('/team/delete/{hashkey}', name: 'app_team_delete')]
     #[Route('/{_locale}/team/delete/{hashkey}', name: 'app_team_delete')]
     public function delete(TeamInfo $ti, 
         TeamInfoRepository $repos,
         LoggerInterface $logger): Response
     {
-        // $repos->delete($ti, true);
+        $repos->delete($ti, true);
         $logger->log('WARNING', 'Deleting team ' . $ti->getId() . ' - ' . 
             $ti->getVerein() . ' (' . $ti->getAltersklasse() . ')');
         return $this->redirectToRoute('app_team_list');
     }
 
-    #[Route('/team/csv', name: 'app_team_csv')]
     #[Route('/{_locale}/team/csv', name: 'app_team_csv')]
     public function csv(TeamInfoRepository $repos,
         LoggerInterface $logger): Response
@@ -483,6 +484,4 @@ EOD;
         $response->headers->set('Content-Disposition', $disposition);
         return $response;
     }
-
-
 }
