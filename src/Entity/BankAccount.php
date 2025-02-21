@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\KontaktRepository;
+use App\Repository\BankAccountRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity(repositoryClass: KontaktRepository::class)]
+#[ORM\Entity(repositoryClass: BankAccountRepository::class)]
 class BankAccount
 {
     #[ORM\Id]
