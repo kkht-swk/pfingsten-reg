@@ -403,7 +403,7 @@ EOD;
         TeamInfoRepository $repos,
         LoggerInterface $logger): Response
     {
-        // $repos->delete($ti, true);
+        $repos->delete($ti, true);
         $logger->log('WARNING', 'Deleting team ' . $ti->getId() . ' - ' . 
             $ti->getVerein() . ' (' . $ti->getAltersklasse() . ')');
         return $this->redirectToRoute('app_team_list');
