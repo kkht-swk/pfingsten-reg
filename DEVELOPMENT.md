@@ -120,6 +120,9 @@ Es hilft oft, einfach den Cache leeren zu lassen:
 bin/console cache:clear
 ```
 
+### Debugging?
+
+TBD
 
 ## Deployment in Produktion
 
