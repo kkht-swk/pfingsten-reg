@@ -16,7 +16,9 @@ team.intro.heading: |
 team.intro.text:
     <p>Herzlich Willkommen beim Pfingstturnier 2025 von Schwarz-Weiß Köln. Vom 7.-9. Juni 2025 wird auf der SWK-Anlage im Kölner Norden "gezockt". Mit diesem Formular können externe Teams, also unsere Gäste, angemeldet werden.</p>
 
-    <p>Bitte fülle alle Daten gewissenhaft aus. Viele aufgeführten Felder sind <strong>Pflichtfelder</strong>, müssen also vor dem Absenden des Formulars korrekt befüllt sein. Nach erfolgreichem Abschluss erhält die unten anzugebende Kontaktperson eine Zusammenfassung der Anmeldung per Email.</p>
+    <p>Bitte fülle alle Daten gewissenhaft aus. Viele aufgeführten Felder sind <strong>Pflichtfelder</strong>, müssen also vor dem Absenden des Formulars korrekt befüllt sein. 
+    Nach erfolgreichem Abschluss erhält die unten anzugebende Kontaktperson eine Zusammenfassung der Anmeldung per Email. Diese Email enthält einen Link,
+    über den bis ca. 14 Tage vor dem Turnier auch noch Anpassungen vorgenommen werden können!</p>
 
 team.intro.errors: |
     Fehler bei der Eingabe - bitte beheben!
@@ -52,7 +54,7 @@ team.misc.heading: |
     Sonstiges
 
 team.misc.text: |
-    <p>Hier kann angegeben werden, ob es weitere <i>Campinggäste</i> gibt, die das Team begleiten. Für diese können wir keine Verpflegung etc. einplanen, würden aber gerne informiert werden, damit wir sicherstellen können, dass die Kapazität des Campinggeländes ausreicht. In den Bemerkungen könnt ihr sonstige Kommentare hinterlassen. Wichtig wäre, dass ihr angebt, mit wie vielen Wohnwagen oder Campervans ihr inklusive etwaiger Gäste kommen möchtet (wir müssen prüfen, ob das alles geht und geben Euch Rückmeldung).</p>
+    <p>Hier kann angegeben werden, ob es weitere <i>Campinggäste</i> gibt, die das Team begleiten. Für diese können wir keine Verpflegung etc. einplanen, würden aber gerne informiert werden, damit wir sicherstellen können, dass die Kapazität des Campinggeländes ausreicht. In den <i>Bemerkungen</i> könnt ihr sonstige Kommentare hinterlassen. Wichtig wäre, dass ihr angebt, mit wie vielen <i>Wohnwagen oder Campervans</i> ihr inklusive etwaiger Gäste kommen möchtet (wir müssen prüfen, ob das alles geht und geben Euch Rückmeldung).</p>
 
 team.bank.heading: |
     Bankdaten für SEPA Einzug
@@ -109,7 +111,7 @@ placeholder.anzahl: Anzahl
 label.gaeste: Zusätzliche Campinggäste
 placeholder.gaeste: Anzahl (optional)
 label.bemerkung: Bemerkung
-placeholder.bemerkung: Bemerkung (optional)
+placeholder.bemerkung: Bemerkungen, Platzbedarf Campervans, weitere Kontaktpersonen... (optional)
 
 label.iban: IBAN
 placeholder.iban: DE...

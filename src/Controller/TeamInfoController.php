@@ -106,7 +106,7 @@ Bankverbindung:
     Inhaber:in: $in
 
 
-Änderungen kannst Du bis ca. 12 Tage vor dem Turnier unter dem folgenden Link vornehmen:
+Änderungen kannst Du bis ca. 14 Tage vor dem Turnier unter dem folgenden Link vornehmen:
 
     $myurl
 
@@ -148,7 +148,7 @@ Bank account:
     Bank:           $bk
     Account holder: $in
 
-You can do changes up to approx. 12 days before the tournament starts using the following link:
+You can do changes up to approx. 14 days before the tournament starts using the following link:
 
     $myurl
 
@@ -190,7 +190,7 @@ Bankgegevens:
     Bank:           $bk
     Rekeninghouder: $in
 
-U kunt wijzigingen aanbrengen tot ca. 12 dagen voordat het toernooi begint via de volgende link:
+U kunt wijzigingen aanbrengen tot ca. 14 dagen voordat het toernooi begint via de volgende link:
 
     $myurl
 
@@ -269,6 +269,7 @@ EOD;
 
     #[Route('/team/register', name: 'app_team_home')]
     #[Route('/team/register/{hashkey}', name: 'app_team_home_edit')]
+    #[Route('/team/master/{hashkey}', name: 'app_team_home_master')]
     public function index(
         ?string $hashkey,
         Request $request) : Response
@@ -375,6 +376,7 @@ EOD;
     }
 
     #[Route('/team/list', name: 'app_team_list')]
+    #[Route('/{_locale}/team/list', name: 'app_team_list')]
     public function list(TeamInfoRepository $repos): Response
     {
         $altersklassen = [ 'wU12', 'mU12', 'wU14', 'mU14' ];
@@ -394,6 +396,7 @@ EOD;
     }
 
     #[Route('/team/delete/{hashkey}', name: 'app_team_delete')]
+    #[Route('/{_locale}/team/delete/{hashkey}', name: 'app_team_delete')]
     public function delete(TeamInfo $ti, 
         TeamInfoRepository $repos,
         LoggerInterface $logger): Response
@@ -405,6 +408,7 @@ EOD;
     }
 
     #[Route('/team/csv', name: 'app_team_csv')]
+    #[Route('/{_locale}/team/csv', name: 'app_team_csv')]
     public function csv(TeamInfoRepository $repos,
         LoggerInterface $logger): Response
     {
