@@ -1,0 +1,29 @@
+Hallo,
+
+Danke für die Anmeldung von {{ player.vorname }} {{ player.nachname }} zu unserem SWK Pfingstturnier!
+
+Hier noch einmal die Details:
+
+Spieler:in:
+    Vorname:      {{ player.vorname }}
+    Nachname:     {{ player.nachname }}
+    Altersklasse: {{ player.altersklasse }}
+    Ernährung:    {{ player.nahrung }}
+
+Kontaktperson:
+    Vorname:      {{ contact.vorname }}
+    Nachname:     {{ contact.nachname }}
+    email:        {{ contact.email }}
+    Telefon:      {{ contact.phone }}
+
+Bankverbindung:
+    IBAN:         {{ account.iban }}
+{% if account.bic %}
+    BIC:          {{ account.bic }}
+{% endif %}
+    Bank:         {{ account.bank }}
+    Inhaber:in:   {{ account.kontoinhaber }}
+
+Bei Rückfragen oder Anpassungen melde Dich bitte unter <pfingsten@kkht.de>
+
+Beste Grüße vom Orga-Team!

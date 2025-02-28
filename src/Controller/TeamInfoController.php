@@ -6,6 +6,7 @@ use App\Entity\TeamInfo;
 use App\Form\TeamInfoType;
 use App\Repository\TeamInfoRepository;
 use Psr\Log\LoggerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -14,7 +15,6 @@ use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
@@ -28,7 +28,7 @@ class TeamInfoController extends AbstractController
     ) {
     }
 
-    private function sendEmail(TeamInfo $ti, string $locale) {
+    private function sendHtmlEmail(TeamInfo $ti, string $locale) {
 
         $myurl = $this->generateUrl('app_team_edit', [
             'hashkey' => $ti->getHashkey()
@@ -37,198 +37,25 @@ class TeamInfoController extends AbstractController
         $ko = $ti->getKontakt();
         $ac = $ti->getAccount();
 
-        $vn = $ti->getVerein();
-        $ak = $ti->getAltersklasse();
-        $na = $ti->getTeamname();
-        $an = $ti->getAnkunftszeit();
-
-        $sv = $ti->getSpielerVegan();
-        $sf = $ti->getSpielerFleisch();
-        $bv = $ti->getBetreuerVegan();
-        $bf = $ti->getBetreuerFleisch();
-        $cc = $ti->getCost();
-
-        $il = $ti->getLogoPath() == null ? "Liegt nicht vor" : "Liegt vor";
-        $it = $ti->getPicturePath() == null ? "Liegt nicht vor" : "Liegt vor";
-        $tg = $ti->getGaeste();
-        $tb = $ti->getBemerkung();
-
-        $kovn = $ko->getVorname();
-        $konn = $ko->getNachname();
-        $koem = $ko->getEmail();
-        $koph = $ko->getPhone();
-
-        $ib = $ac->getIban();
-        $bi = $ac->getBic();
-        $bk = $ac->getBank();
-        $in = $ac->getKontoinhaber();
-
-        if ($locale === "en") {
-            $il = $ti->getLogoPath() == null ? "Not available" : "Available";
-            $it = $ti->getPicturePath() == null ? "Not available" : "Available";
-        } 
-        elseif ($locale === "nl") {
-            $il = $ti->getLogoPath() == null ? "Is niet beschikbaar" : "Is beschikbaar";
-            $it = $ti->getPicturePath() == null ? "Is niet beschikbaar" : "Is beschikbaar";
-        }
-
-        $text_de = <<< EOD
-Hallo,
-
-Danke für die Anmeldung des Teams $vn ($ak) zu unserem SWK Pfingstturnier!
-
-Hier noch einmal die Details:
-
-Kontaktperson:
-    Vorname:  $kovn
-    Nachname: $konn
-    Email:    $koem
-    Telefon:  $koph
-
-Verpflegung:
-    Spieler:innen vegan:    $sv
-    Spieler:innen fleisch:  $sf
-    Betreuer:innen vegan:   $bv
-    Betreuer:innen fleisch: $bf
-    Gesamtkosten in €:      $cc
-
-Sonstiges:
-    Ankunftszeit: $an
-    Logo:         $il
-    Teambild:     $it
-    Gäste:        $tg
-    Bemerkung:    $tb
-
-Bankverbindung:
-    IBAN:       $ib
-    BIC:        $bi
-    Bank:       $bk
-    Inhaber:in: $in
-
-
-Änderungen kannst Du bis ca. 14 Tage vor dem Turnier unter dem folgenden Link vornehmen:
-
-    $myurl
-
-Bei Rückfragen oder Anpassungen melde Dich bitte unter <pfingsten@kkht.de>
-
-Beste Grüße vom Orga-Team!
-EOD;
-
-$text_en = <<< EOD
-Hi,
-
-Thank you for registering team $vn ($ak) for the SWK Pentecost 2025 tournament!
-
-Below all relevant details
-
-Contact:
-    First name: $kovn
-    Last name:  $konn
-    email:      $koem
-    Phone:      $koph
-
-Catering:
-    Player vegan:     $sv
-    Player meat:      $sf
-    Supervisor vegan: $bv
-    Supervisor meat:  $bf
-    Total cost in €:  $cc
-
-Miscealleanous:
-    Arrival time: $an
-    Logo:         $il
-    Team picture: $it
-    Guests:       $tg
-    Remarks:      $tb
-
-Bank account:
-    IBAN:           $ib
-    BIC:            $bi
-    Bank:           $bk
-    Account holder: $in
-
-You can do changes up to approx. 14 days before the tournament starts using the following link:
-
-    $myurl
-
-If you have any questions, please contact the organization team at <pfingsten@kkht.de>
-
-Best regards from the organization team!
-EOD;
-
-$text_nl = <<< EOD
-Hi,
-
-Bedankt voor het aanmelden van team $vn ($ak) voor het SWK Pinksteren 2025 toernooi!
-
-Hieronder alle relevante details
-
-Contactpersonn:
-    Voornaam:   $kovn
-    Achternaam: $konn
-    E-mail:     $koem
-    Telefoon:   $koph
-
-Horeca:
-    Speler vegan:      $sv
-    Speler vlees:      $sf
-    Begeleider vegan:  $bv
-    Begeleider vlees:  $bf
-    Total kosten in €: $cc
-
-Gemengd:
-    Aankomsttijd: $an
-    Logo:         $il
-    Teamfoto:     $it
-    Gasten:       $tg
-    Opmerking:    $tb
-
-Bankgegevens:
-    IBAN:           $ib
-    BIC:            $bi
-    Bank:           $bk
-    Rekeninghouder: $in
-
-U kunt wijzigingen aanbrengen tot ca. 14 dagen voordat het toernooi begint via de volgende link:
-
-    $myurl
-
-Als u vragen heeft, kunt u contact opnemen met het organisatieteam via <pfingsten@kkht.de>
-
-Met vriendelijke groeten van het organisatieteam!
-EOD;
-
-        $text = $text_de;
-        $subject = 'SWK Pfingstturnier: Registrierung ';
-        if ($locale === "en") {
-            $text = $text_en;
-            $subject = 'SWK Pentecost tournament: Registration ';
-        }
-        elseif ($locale === "nl") {
-            $text = $text_nl;
-            $subject = 'SWK Pinkstertoernooi: Registratie ';
-        }
-
-        $email = (new Email())
+        $email = (new TemplatedEmail())
             ->from('SWK Pfingstturnier <pfingsten@kkht.de>')
-            ->to($kovn . ' ' . $konn . '<' . $koem . '>')
+            ->to($ko->getVorname() . ' ' . $ko->getNachname() . '<' . $ko->getEmail() . '>')
             // ->cc('cc@example.com')
-//            ->bcc('pfingsten@kkht.de')
+            ->bcc('pfingsten@kkht.de')
             // ->priority(Email::PRIORITY_HIGH)
-            ->subject($subject .  $vn . ' (' . $ak . ')')
-            ->text($text)
-            // ->html('<p>See Twig integration for better HTML integration!</p>')
-            ;
-
-        $email->bcc('pfingsten@kkht.de');
-
-        // if ($_ENV['APP_ENV'] === 'prod') {
-        //     $email->bcc('pfingsten@kkht.de');
-        // }
+            ->subject('SWK Pfingstturnier: Registrierung ' .  $ti->getVerein() . ' (' . $ti->getAltersklasse() . ')')
+            ->htmlTemplate('email/team_reg.html.twig')
+            ->textTemplate('email/team_reg.txt.twig')
+            ->locale('de')
+            ->context([
+                'team' => $ti,
+                'contact' => $ko,
+                'account' => $ac,
+                'editLink' => $myurl
+            ])
+        ;
     
         $this->mailer->send($email);
-
     }
 
     private function storePic(?UploadedFile $file, string $fname, string $prefix): ?string 
@@ -338,13 +165,13 @@ EOD;
 
                 $this->saveTeamInfo($form, $ti, $repos);
 
-                // if I am masering, just return to list
+                // if I am mastering, just return to list
                 if ($request->attributes->get('_route') === 'app_team_master') {
                     return $this->redirectToRoute('app_team_list');
                 }
 
                 // else: send email and show summary
-                $this->sendEmail($ti, $request->getLocale());
+                $this->sendHtmlEmail($ti, $request->getLocale());
                 return $this->redirectToRoute('app_team_summary', [
                     'hashkey' => $ti->getHashkey()] );
             }
@@ -369,12 +196,16 @@ EOD;
         requirements: [ '_locale' => 'en|de|nl' ])]
     public function summary(TeamInfo $ti): Response
     {
-        if ($ti != null) {
-            return $this->render('team_info/team_summary.html.twig', [
-                'controller_name' => 'TeamInfoController',
-                'teamInfo' => $ti,
-            ]);
-        }
+        return $this->render('team_info/team_summary.html.twig', [
+            'controller_name' => 'TeamInfoController',
+            'teamInfo' => $ti,
+        ]);
+        // if ($ti != null) {
+        //     return $this->render('team_info/team_summary.html.twig', [
+        //         'controller_name' => 'TeamInfoController',
+        //         'teamInfo' => $ti,
+        //     ]);
+        // }
     }
 
     #[Route('/{_locale}/team/list', name: 'app_team_list',

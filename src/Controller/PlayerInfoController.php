@@ -6,12 +6,12 @@ use App\Entity\PlayerInfo;
 use App\Form\PlayerInfoType;
 use App\Repository\PlayerInfoRepository;
 use Psr\Log\LoggerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Attribute\Route;
 
 class PlayerInfoController extends AbstractController
@@ -22,72 +22,28 @@ class PlayerInfoController extends AbstractController
     ) {
     }
 
-    private function sendEmail(PlayerInfo $pi) {
+    private function sendHtmlEmail(PlayerInfo $pi) {
         $ko = $pi->getKontakt();
         $ac = $pi->getAccount();
 
-        $vn = $pi->getVorname();
-        $nn = $pi->getNachname();
-        $ak = $pi->getAltersklasse();
-        $na = $pi->getNahrung();
-        $kovn = $ko->getVorname();
-        $konn = $ko->getNachname();
-        $koem = $ko->getEmail();
-        $koph = $ko->getPhone();
-        $ib = $ac->getIban();
-        $bi = $ac->getBic();
-        $bk = $ac->getBank();
-        $in = $ac->getKontoinhaber();
-
-        $text = <<< EOD
-Hallo,
-
-Danke für die Anmeldung von $vn $nn zu unserem SWK Pfingstturnier!
-
-Hier noch einmal die Details:
-
-Spieler:in:
-    Vorname:      $vn
-    Nachname:     $nn
-    Altersklasse: $ak
-    Ernährung:    $na
-
-Kontaktperson:
-    Vorname:      $kovn
-    Nachname:     $konn
-    email:        $koem
-    Telefon:      $koph
-
-Bankverbindung:
-    IBAN:         $ib
-    BIC:          $bi
-    Bank:         $bk
-    Inhaber:in:   $in
-
-Bei Rückfragen oder Anpassungen melde Dich bitte unter <pfingsten@kkht.de>
-
-Beste Grüße vom Orga-Team!
-EOD;
-
-        $email = (new Email())
+        $email = (new TemplatedEmail())
             ->from('SWK Pfingstturnier <pfingsten@kkht.de>')
-            ->to($kovn . ' ' . $konn . '<' . $koem . '>')
+            ->to($ko->getVorname() . ' ' . $ko->getNachname() . '<' . $ko->getEmail() . '>')
             // ->cc('cc@example.com')
-            // ->bcc('pfingsten@kkht.de')
+            ->bcc('pfingsten@kkht.de')
             // ->priority(Email::PRIORITY_HIGH)
             ->subject('SWK Pfingstturnier: Registrierung ' . $pi->getVorname() . ' ' . $pi->getNachname())
-            ->text($text)
-            // ->html('<p>See Twig integration for better HTML integration!</p>')
-            ;
-
-        $email->bcc('pfingsten@kkht.de');
-
-        // if ($_ENV['APP_ENV'] === 'prod') {
-        //     $email->bcc('pfingsten@kkht.de');
-        // }
+            ->htmlTemplate('email/player_reg.html.twig')
+            ->textTemplate('email/player_reg.txt.twig')
+            ->locale('de')
+            ->context([
+                'player' => $pi,
+                'contact' => $ko,
+                'account' => $ac
+            ])
+        ;
     
         $this->mailer->send($email);
-
     }
 
     #[Route('/player/register', name: 'app_player_new')]
@@ -102,7 +58,7 @@ EOD;
             if ($form->isValid()) {
 
                 $repos->save($pi, true);
-                $this->sendEmail($pi);
+                $this->sendHtmlEmail($pi);
 
                 return $this->redirectToRoute('app_player_summary', 
                     ['hashkey' => $pi->getHashkey()]
@@ -123,11 +79,9 @@ EOD;
     #[Route('/player/summary/{hashkey}', name: 'app_player_summary')]
     public function summary(PlayerInfo $pi): Response
     {
-        if ($pi != null) {
-            return $this->render('player_info/player_summary.html.twig', [
-                'playerInfo' => $pi,
-            ]);
-        }
+        return $this->render('player_info/player_summary.html.twig', [
+            'playerInfo' => $pi,
+        ]);
     }
 
     #[Route('/player/list', name: 'app_player_list')]

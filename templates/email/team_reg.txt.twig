@@ -1,0 +1,44 @@
+Hallo,
+
+Danke für die Anmeldung des Teams {{ team.verein }} ({{ team.altersklasse }}) zu unserem SWK Pfingstturnier!
+
+Hier noch einmal die Details der Anmeldung:
+
+Kontaktperson:
+    Vorname:  {{ contact.vorname }}
+    Nachname: {{ contact.nachname }}
+    Email:    {{ contact.email }}
+    Telefon:  {{ contact.phone }}
+
+Verpflegung:
+    Spieler:innen vegan:    {{ team.spielerVegan }}
+    Spieler:innen fleisch:  {{ team.spielerFleisch }}
+    Betreuer:innen vegan:   {{ team.betreuerVegan }}
+    Betreuer:innen fleisch: {{ team.betreuerFleisch }}
+    Gesamtkosten in €:      {{ team.cost }}
+
+Sonstiges:
+    Ankunftszeit: {{ team.ankunftszeit }}
+    Logo:         {{ team.logoPath ? 'Liegt vor' : 'Liegt nicht vor' }}
+    Teambild:     {{ team.picturePath ? 'Liegt vor' : 'Liegt nicht vor' }}
+    Gäste:        {{ team.gaeste }}
+    Bemerkung:    {{ team.bemerkung }}
+
+Bankverbindung:
+    IBAN:         {{ account.iban }}
+{% if account.bic %}
+    BIC:          {{ account.bic }}
+{% endif %}
+    Bank:         {{ account.bank }}
+    Inhaber:in:   {{ account.kontoinhaber }}
+
+
+Änderungen kannst Du bis ca. 14 Tage vor dem Turnier unter dem folgenden Link vornehmen:
+
+    {{ editLink }}
+
+Achtung: Jede Person, die über diesen Link verfügt, kann Anpassungen vornehmen - teile ihn nur mit Personen, denen Du vertraust!
+
+Bei Rückfragen melde Dich bitte unter <pfingsten@kkht.de>
+
+Beste Grüße vom Orga-Team!

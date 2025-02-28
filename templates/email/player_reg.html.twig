@@ -1,0 +1,35 @@
+
+<p>
+    Hallo,<br /><br />Danke für die Anmeldung von <strong>{{ player.vorname }} {{ player.nachname }}</strong> zu unserem SWK Pfingstturnier!
+</p>
+<p>
+    Hier noch einmal die Details der Anmeldung:
+</p>
+<table>
+<tr style="line-height: 1.6;"><td colspan="2"><strong>Spieler:in</strong></td></tr>
+<tr><td style="padding-left: 20px;">Vorname:</td><td>{{ player.vorname }}</td></tr>
+<tr><td style="padding-left: 20px;">Nachname:</td><td>{{ player.nachname }}</td></tr>
+<tr><td style="padding-left: 20px;">Altersklasse:</td><td>{{ player.altersklasse }}</td></tr>
+<tr><td style="padding-left: 20px;">Ernährung:</td><td>{{ player.nahrung }}</td></tr>
+
+<tr style="line-height: 1.6;"><td colspan="2"><strong>Kontaktperson</strong></td></tr>
+<tr><td style="padding-left: 20px;">Vorname:</td><td>{{ contact.vorname }}</td></tr>
+<tr><td style="padding-left: 20px;">Nachname:</td><td>{{ contact.nachname }}</td></tr>
+<tr><td style="padding-left: 20px;">E-Mail:</td><td>{{ contact.email }}</td></tr>
+<tr><td style="padding-left: 20px;">Telefon:</td><td>{{ contact.phone }}</td></tr>
+
+<tr style="line-height: 1.6;"><td colspan="2"><strong>Bankverbindung</strong></td></tr>
+<tr><td style="padding-left: 20px;">IBAN:</td><td>{{ account.iban }}</td></tr>
+{% if account.bic %}
+<tr><td style="padding-left: 20px;">BIC:</td><td>{{ account.bic }}</td></tr>
+{% endif %}
+<tr><td style="padding-left: 20px;">Bank:</td><td>{{ account.bank }}</td></tr>
+<tr><td style="padding-left: 20px;">Inhaber:in:</td><td>{{ account.kontoinhaber }}</td></tr>
+</table>
+
+<p>
+    Bei Rückfragen oder Anpassungen melde Dich bitte unter <a href="mailto:pfingsten@kkht.de">&lt;pfingsten@kkht.de&gt;</a>.
+</p>
+<p>
+Beste Grüße vom Orga-Team!
+</p>

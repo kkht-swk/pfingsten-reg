@@ -1,0 +1,81 @@
+Hi,
+
+Thank you for registering team $vn ($ak) for the SWK Pentecost 2025 tournament!
+
+Below all relevant details
+
+Contact:
+    First name: $kovn
+    Last name:  $konn
+    email:      $koem
+    Phone:      $koph
+
+Catering:
+    Player vegan:     $sv
+    Player meat:      $sf
+    Supervisor vegan: $bv
+    Supervisor meat:  $bf
+    Total cost in €:  $cc
+
+Miscealleanous:
+    Arrival time: $an
+    Logo:         $il
+    Team picture: $it
+    Guests:       $tg
+    Remarks:      $tb
+
+Bank account:
+    IBAN:           $ib
+    BIC:            $bi
+    Bank:           $bk
+    Account holder: $in
+
+You can do changes up to approx. 14 days before the tournament starts using the following link:
+
+    $myurl
+
+If you have any questions, please contact the organization team at <pfingsten@kkht.de>
+
+Best regards from the organization team!
+EOD;
+
+$text_nl = <<< EOD
+Hi,
+
+Bedankt voor het aanmelden van team $vn ($ak) voor het SWK Pinksteren 2025 toernooi!
+
+Hieronder alle relevante details
+
+Contactpersonn:
+    Voornaam:   $kovn
+    Achternaam: $konn
+    E-mail:     $koem
+    Telefoon:   $koph
+
+Horeca:
+    Speler vegan:      $sv
+    Speler vlees:      $sf
+    Begeleider vegan:  $bv
+    Begeleider vlees:  $bf
+    Total kosten in €: $cc
+
+Gemengd:
+    Aankomsttijd: $an
+    Logo:         $il
+    Teamfoto:     $it
+    Gasten:       $tg
+    Opmerking:    $tb
+
+Bankgegevens:
+    IBAN:           $ib
+    BIC:            $bi
+    Bank:           $bk
+    Rekeninghouder: $in
+
+U kunt wijzigingen aanbrengen tot ca. 14 dagen voordat het toernooi begint via de volgende link:
+
+    $myurl
+
+Als u vragen heeft, kunt u contact opnemen met het organisatieteam via <pfingsten@kkht.de>
+
+Met vriendelijke groeten van het organisatieteam!
