@@ -11,25 +11,25 @@
         "doctrine/doctrine-bundle": "^2.12",
         "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/orm": "^3.1",
-        "symfony/asset": "6.4.*",
-        "symfony/asset-mapper": "6.4.*",
-        "symfony/console": "6.4.*",
-        "symfony/dotenv": "6.4.*",
-        "symfony/expression-language": "6.4.*",
+        "symfony/asset": "*",
+        "symfony/asset-mapper": "*",
+        "symfony/console": "*",
+        "symfony/dotenv": "*",
+        "symfony/expression-language": "*",
         "symfony/flex": "^2",
-        "symfony/form": "6.4.*",
-        "symfony/framework-bundle": "6.4.*",
-        "symfony/intl": "6.4.*",
-        "symfony/mailer": "6.4.*",
+        "symfony/form": "*",
+        "symfony/framework-bundle": "*",
+        "symfony/intl": "*",
+        "symfony/mailer": "*",
         "symfony/monolog-bundle": "^3.10",
-        "symfony/runtime": "6.4.*",
-        "symfony/security-bundle": "6.4.*",
-        "symfony/security-csrf": "6.4.*",
-        "symfony/translation": "6.4.*",
-        "symfony/twig-bundle": "6.4.*",
-        "symfony/uid": "6.4.*",
-        "symfony/validator": "6.4.*",
-        "symfony/yaml": "6.4.*",
+        "symfony/runtime": "*",
+        "symfony/security-bundle": "*",
+        "symfony/security-csrf": "*",
+        "symfony/translation": "*",
+        "symfony/twig-bundle": "*",
+        "symfony/uid": "*",
+        "symfony/validator": "*",
+        "symfony/yaml": "*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0"
     },
@@ -79,13 +79,13 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.4.*"
+            "require": "7.3.*"
         }
     },
     "require-dev": {
-        "symfony/debug-bundle": "6.4.*",
+        "symfony/debug-bundle": "7.3.*",
         "symfony/maker-bundle": "^1.58",
-        "symfony/stopwatch": "6.4.*",
-        "symfony/web-profiler-bundle": "6.4.*"
+        "symfony/stopwatch": "7.3.*",
+        "symfony/web-profiler-bundle": "7.3.*"
     }
 }
