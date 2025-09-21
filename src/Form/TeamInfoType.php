@@ -56,7 +56,7 @@ class TeamInfoType extends AbstractType
                     new NotBlank([], 'error.anzahl.notblank' ),
                     new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
                 ],
-                // 'empty_data' => 0
+                'empty_data' => 0
             ])
             ->add('spielerfleisch', IntegerType::class, [
                 'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
@@ -65,7 +65,7 @@ class TeamInfoType extends AbstractType
                     new NotBlank([], 'error.anzahl.notblank' ),
                     new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
                 ],
-                // 'empty_data' => 0
+                'empty_data' => 0
             ])
             ->add('betreuervegan', IntegerType::class, [
                 'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
@@ -74,7 +74,7 @@ class TeamInfoType extends AbstractType
                     new NotBlank([], 'error.anzahl.notblank' ),
                     new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
                 ],
-                // 'empty_data' => 0
+                'empty_data' => 0,
             ])
             ->add('betreuerfleisch', IntegerType::class, [
                 'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
@@ -83,13 +83,13 @@ class TeamInfoType extends AbstractType
                     new NotBlank([], 'error.anzahl.notblank' ),
                     new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
                 ],
-
-                // 'empty_data' => 0
+                'empty_data' => 0,
             ])
 
             ->add('gaeste', IntegerType::class, [
                 'label' => 'label.gaeste',
                 'attr' => [ 'placeholder' => 'placeholder.gaeste' ],
+                'empty_data' => 0,
             ])
             ->add('bemerkung', TextareaType::class, [
                 'label' => 'label.bemerkung',
