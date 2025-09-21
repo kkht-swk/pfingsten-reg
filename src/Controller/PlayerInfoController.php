@@ -6,7 +6,6 @@ use App\Entity\PlayerInfo;
 use App\Form\PlayerInfoType;
 use App\Repository\PlayerInfoRepository;
 use Psr\Log\LoggerInterface;
-use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\HeaderUtils;
@@ -77,11 +76,11 @@ class PlayerInfoController extends AbstractController
         ]);
     }
 
-    #[Route('/player/summary/{hashkey}', name: 'app_player_summary')]
-    public function summary(#[MapEntity(mapping: ['hashkey' => 'hashkey'])] PlayerInfo $pi): Response
+    #[Route('/player/summary/{hashkey:playerInfo}', name: 'app_player_summary')]
+    public function summary(PlayerInfo $playerInfo): Response
     {
         return $this->render('player_info/player_summary.html.twig', [
-            'playerInfo' => $pi,
+            'playerInfo' => $playerInfo,
         ]);
     }
 
