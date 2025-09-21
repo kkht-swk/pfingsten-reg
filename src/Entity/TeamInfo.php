@@ -67,6 +67,7 @@ class TeamInfo
 
     #[ORM\Column]
     #[Assert\NotBlank(message: 'error.anzahl.notblank')]
+    #[Assert\GreaterThanOrEqual(0)]
     private ?int $betreuerFleisch = null;
 
     #[ORM\Column]
