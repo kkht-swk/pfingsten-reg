@@ -16,5 +16,17 @@
       <p class="text-center">Bei Interesse an unserem Turnier melde Dich bitte beim 
       Orga Team unter <a href="mailto:pfingsten@kkht.de">pfingsten@kkht.de</a>.
       </p>
+
+      {% if app.request.server.get('APP_ENV') == 'dev' %}
+        <p class="text-center">Entwicklungsumgebung aktiv</p>
+        <p class="text-center">
+          <a href="/player/register">Spieler:in anmelden</a><br>
+          <a href="/team/register">Team anmelden</a><br>
+        </p>
+        <p class="text-center">
+          <a href="/player/list">Spielerliste anzeigen</a><br>
+          <a href="/team/list">Teamliste anzeigen</a><br>
+        </p>        
+      {% endif %}
     </div>
 {% endblock %}
