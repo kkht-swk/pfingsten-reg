@@ -6,13 +6,13 @@
       <div class="row text-center justify-content-center mb-5">
         <div class="col-auto gy-3">
           <img src="{{ asset('pics/KKHT-logo.png') }}" alt="KKHT SWK Logo" class="kkhtlogo">
-          <h1 class="mt-2">SWK Pfingstturnier</h1> <span class="number">2025</span>
+          <h1 class="mt-2">SWK Pfingstturnier</h1> <span class="number">{{ constant('App\\Config::SWK_YEAR') }}</span>
         </div>
       </div>
 
       <h2>Anmeldeformular für SWK Spieler:innen</h2>
-      <p>Herzlich Willkommen beim Pfingstturnier 2025 von Schwarz-Weiß Köln. 
-      Vom 7.-9. Juni 2025 wird auf der SWK-Anlage im Kölner Norden "gezockt".
+      <p>Herzlich Willkommen beim Pfingstturnier {{ constant('App\\Config::SWK_YEAR') }} von Schwarz-Weiß Köln. 
+      Vom 23.-25. Mai 2026 wird auf der SWK-Anlage im Kölner Norden "gezockt".
       Mit diesem Formular können SWK-Spielerinnen und -Spieler angemeldet werden.</p>
 
       <p>Bitte fülle alle Daten gewissenhaft aus. Alle aufgeführten Felder sind 

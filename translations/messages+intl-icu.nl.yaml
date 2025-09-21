@@ -1,5 +1,5 @@
 site.title: |
-    SWK Pinkstertoernooi 2025
+    SWK Pinkstertoernooi 2026
 
 team.register.title: |
     Teamregistratie
@@ -14,7 +14,7 @@ team.intro.heading: |
     Inschrijfformulier voor externe teams
 
 team.intro.text:
-    <p>Welkom bij het Pinkstertoernooi 2025 vanuit Schwarz-Weiß Keulen. Van 7-9 juni 2025 wordt gespeeld in de SWK-faciliteit in het noorden van Keulen. Via dit formulier kunnen externe teams, oftewel onze gasten, worden aangemeld.</p>
+    <p>Welkom bij het Pinkstertoernooi 2026 vanuit Schwarz-Weiß Keulen. Van 23-25 mei 2026 wordt gespeeld in de SWK-faciliteit in het noorden van Keulen. Via dit formulier kunnen externe teams, oftewel onze gasten, worden aangemeld.</p>
 
     <p>Vul alle gegevens zorgvuldig in. Veel van de genoemde velden zijn <strong>verplicht</strong> , dus ze moeten correct worden ingevuld voordat het formulier wordt verzonden. Na succesvolle afronding ontvangt de hieronder genoemde contactpersoon per e-mail een samenvatting van de aanmelding.</p>
 
@@ -58,7 +58,7 @@ team.bank.heading: |
     Bankgegevens voor SEPA-afschrijving
 
 team.bank.text: |
-    <p>Wij innen het totaalbedrag voor de geboekte maaltijdpakketten van een bankrekening via de vereniging <strong>Blackstars e.V.</strong> Hiervoor hebben wij een bijbehorend SEPA-mandaat nodig. De verhuizing zal niet plaatsvinden vóór 01 juni 2025.</p>
+    <p>Wij innen het totaalbedrag voor de geboekte maaltijdpakketten van een bankrekening via de vereniging <strong>Blackstars e.V.</strong> Hiervoor hebben wij een bijbehorend SEPA-mandaat nodig. De verhuizing zal niet plaatsvinden vóór 15 mei 2026.</p>
 
     <p>Hierbij machtig ik <strong>Blackstars e.V.</strong> om het resulterende totaalbedrag van <strong>€ <span id="m1">{curr_cost}</span></strong> te innen van de hieronder genoemde rekening.</p>
 
@@ -70,7 +70,7 @@ team.outro.text: |
 # =================================================
 
 team.summary.text: |
-    <p>Bedankt voor het aanmelden van team <strong>{team_name} ({team_ak})</strong> voor het SWK Pinksteren 2025 toernooi.</p>
+    <p>Bedankt voor het aanmelden van team <strong>{team_name} ({team_ak})</strong> voor het SWK Pinksteren 2026 toernooi.</p>
 
     <p>We hebben een e-mail gestuurd naar het opgegeven contactadres ({kontakt_email}). ). Als u vragen heeft, kunt u contact opnemen met het organisatieteam via <a href="mailto:pfingsten@kkht.de">pfingsten@kkht.de</a>.</p>
 

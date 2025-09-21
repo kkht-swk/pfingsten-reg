@@ -6,11 +6,11 @@
       <div class="row text-center justify-content-center mb-5">
         <div class="col-auto gy-3">
           <img src="{{ asset('pics/KKHT-logo.png') }}" alt="KKHT SWK Logo" class="kkhtlogo">
-          <h1 class="mt-2">SWK Pfingstturnier</h1> <span class="number">2025</span>
+          <h1 class="mt-2">SWK Pfingstturnier</h1> <span class="number">{{ constant('App\\Config::SWK_YEAR') }}</span>
         </div>
       </div>
 
-      <p class="text-center">Dies ist die Startseite des SWK Pfingstturniers 2025 - <br>dem großen, 
+      <p class="text-center">Dies ist die Startseite des SWK Pfingstturniers {{ constant('App\\Config::SWK_YEAR') }} - <br>dem großen, 
       traditionellen Hockeycamp des <strong>KKHT Schwarz-Weiß Köln 1920 e.V.</strong></p> 
       
       <p class="text-center">Bei Interesse an unserem Turnier melde Dich bitte beim 

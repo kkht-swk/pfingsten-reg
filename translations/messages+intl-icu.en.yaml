@@ -1,5 +1,5 @@
 site.title: |
-    SWK Pentecost Tournament 2025
+    SWK Pentecost Tournament 2026
 
 team.register.title: |
     Team registration
@@ -14,7 +14,7 @@ team.intro.heading: |
     Registration form for external teams
 
 team.intro.text: |
-    <p>Welcome to the Schwarz-Weiß Köln 2025 Pentecost tournament. From June 7-9, 2025, the tournament will take place at the SWK facility in the north of Cologne. External teams, i.e. our guests, can be registered using this form.</p>
+    <p>Welcome to the Schwarz-Weiß Köln 2026 Pentecost tournament. From May 23-25, 2026, the tournament will take place at the SWK facility in the north of Cologne. External teams, i.e. our guests, can be registered using this form.</p>
 
     <p>Please fill out all data carefully. Many of the fields listed are <strong>mandatory</strong> and must be filled out correctly before submitting the form. After successful completion, the contact person specified below will receive a summary of the registration by email.</p>
 
@@ -60,7 +60,7 @@ team.bank.heading: |
     Bank details for SEPA direct debit
 
 team.bank.text: |
-    <p>We will collect the total amount for the booked catering packages from a bank account via the <strong>Blackstars e.V.</strong>. For this we need a corresponding SEPA mandate. The collection will not take place before June 1, 2025.</p>
+    <p>We will collect the total amount for the booked catering packages from a bank account via the <strong>Blackstars e.V.</strong>. For this we need a corresponding SEPA mandate. The collection will not take place before May 15, 2026.</p>
 
     <p>I hereby authorize <strong>Blackstars e.V.</strong> to collect the resulting total amount of <strong>€ <span id="m1">{curr_cost}</span></strong> from the account stated below.</p>
 
@@ -71,7 +71,7 @@ team.outro.text: |
 # =================================================
 
 team.summary.text: |
-    <p>Thank you for registering team <strong>{team_name} ({team_ak})</strong> for the SWK Pentecost 2025 tournament.</p>
+    <p>Thank you for registering team <strong>{team_name} ({team_ak})</strong> for the SWK Pentecost 2026 tournament.</p>
 
     <p>We have sent an email to the contact address provided ({kontakt_email}). If you have any questions, please contact the organization team at <a href="mailto:pfingsten@kkht.de">pfingsten@kkht.de</a>.</p>
 
