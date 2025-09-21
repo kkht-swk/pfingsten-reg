@@ -42,7 +42,7 @@
             <td>{{ pi.kontakt.email }}</td>
             <td>{{ pi.kontakt.phone }}</td>
             <td>{{ pi.account.iban }}</td>
-            <td><a href="{{ path('app_player_delete', {'hashkey': pi.hashkey }) }}">Delete</a></td>
+            <td><a href="{{ path('app_player_delete', {'id': pi.id }) }}">Delete</a></td>
           </tr>
         {% endfor %}
       {% endfor %}

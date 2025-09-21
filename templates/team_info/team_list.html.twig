@@ -44,7 +44,7 @@
             <td>{{ ti.account.iban }}</td>
             <td>
               <a href="{{ path('app_team_master', {'hashkey': ti.hashkey }) }}">Master</a>
-                &nbsp;<a href="{{ path('app_team_delete', {'hashkey': ti.hashkey }) }}">Delete</a>
+                &nbsp;<a href="{{ path('app_team_delete', {'id': ti.id }) }}">Delete</a>
             </td>
           </tr>
         {% endfor %}

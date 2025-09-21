@@ -6,6 +6,7 @@ use App\Entity\TeamInfo;
 use App\Form\TeamInfoType;
 use App\Repository\TeamInfoRepository;
 use Psr\Log\LoggerInterface;
+use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Form;
@@ -194,7 +195,9 @@ class TeamInfoController extends AbstractController
 
     #[Route('/{_locale}/team/summary/{hashkey}', name: 'app_team_summary',
         requirements: [ '_locale' => 'en|de|nl' ])]
-    public function summary(TeamInfo $ti): Response
+    public function summary(
+        #[MapEntity(mapping: ['hashkey' => 'hashkey'])]
+        TeamInfo $ti): Response
     {
         return $this->render('team_info/team_summary.html.twig', [
             'controller_name' => 'TeamInfoController',
@@ -229,7 +232,7 @@ class TeamInfoController extends AbstractController
 
     }
 
-    #[Route('/{_locale}/team/delete/{hashkey}', name: 'app_team_delete')]
+    #[Route('/{_locale}/team/delete/{id}', name: 'app_team_delete')]
     public function delete(TeamInfo $ti, 
         TeamInfoRepository $repos,
         LoggerInterface $logger): Response

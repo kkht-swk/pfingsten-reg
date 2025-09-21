@@ -6,6 +6,7 @@ use App\Entity\PlayerInfo;
 use App\Form\PlayerInfoType;
 use App\Repository\PlayerInfoRepository;
 use Psr\Log\LoggerInterface;
+use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\HeaderUtils;
@@ -77,7 +78,7 @@ class PlayerInfoController extends AbstractController
     }
 
     #[Route('/player/summary/{hashkey}', name: 'app_player_summary')]
-    public function summary(PlayerInfo $pi): Response
+    public function summary(#[MapEntity(mapping: ['hashkey' => 'hashkey'])] PlayerInfo $pi): Response
     {
         return $this->render('player_info/player_summary.html.twig', [
             'playerInfo' => $pi,
@@ -169,8 +170,9 @@ class PlayerInfoController extends AbstractController
     }
 
 
-    #[Route('/player/delete/{hashkey}', name: 'app_player_delete')]
-    public function delete(PlayerInfo $pi, 
+    #[Route('/player/delete/{id}', name: 'app_player_delete')]
+    public function delete(
+        PlayerInfo $pi, 
         PlayerInfoRepository $repos,
         LoggerInterface $logger): Response
     {
