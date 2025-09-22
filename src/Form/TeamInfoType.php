@@ -53,7 +53,7 @@ class TeamInfoType extends AbstractType
                 'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
                 'label' => 'label.spieler.vegan',
                 'constraints' => [
-                    new NotBlank([], 'error.anzahl.notblank' ),
+                    new NotBlank(null, 'error.anzahl.notblank' ),
                     new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
                 ],
                 'empty_data' => 0
@@ -62,7 +62,7 @@ class TeamInfoType extends AbstractType
                 'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
                 'label' => 'label.spieler.fleisch',
                 'constraints' => [
-                    new NotBlank([], 'error.anzahl.notblank' ),
+                    new NotBlank(null, 'error.anzahl.notblank' ),
                     new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
                 ],
                 'empty_data' => 0
@@ -71,7 +71,7 @@ class TeamInfoType extends AbstractType
                 'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
                 'label' => 'label.betreuer.vegan',
                 'constraints' => [
-                    new NotBlank([], 'error.anzahl.notblank' ),
+                    new NotBlank(null, 'error.anzahl.notblank' ),
                     new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
                 ],
                 'empty_data' => 0,
@@ -80,7 +80,7 @@ class TeamInfoType extends AbstractType
                 'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
                 'label' => 'label.betreuer.fleisch',
                 'constraints' => [
-                    new NotBlank([], 'error.anzahl.notblank' ),
+                    new NotBlank(null, 'error.anzahl.notblank' ),
                     new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
                 ],
                 'empty_data' => 0,
@@ -109,16 +109,16 @@ class TeamInfoType extends AbstractType
                 // unmapped fields can't define their validation using attributes
                 // in the associated entity, so you can use the PHP constraint classes
                 'constraints' => [
-                    new File([
-                        'maxSize' => '2M',
-                        'maxSizeMessage' => 'error.logo.max_size',
-                        'mimeTypes' => [
+                    new File(
+                        maxSize: '2M',
+                        maxSizeMessage: 'error.logo.max_size',
+                        mimeTypes: [
                             'image/png',
                             'image/jpg',
                             'image/jpeg',
                         ],
-                        'mimeTypesMessage' => 'error.logo.format',
-                    ])
+                        mimeTypesMessage: 'error.logo.format',
+                    )
                 ],
             ])
             ->add('picture', FileType::class, [
@@ -128,16 +128,16 @@ class TeamInfoType extends AbstractType
                 // unmapped fields can't define their validation using attributes
                 // in the associated entity, so you can use the PHP constraint classes
                 'constraints' => [
-                    new File([
-                        'maxSize' => '4M',
-                        'maxSizeMessage' => 'error.picture.max_size',
-                        'mimeTypes' => [
+                    new File(
+                        maxSize: '4M',
+                        maxSizeMessage: 'error.picture.max_size',
+                        mimeTypes: [
                             'image/png',
                             'image/jpg',
                             'image/jpeg',
                         ],
-                        'mimeTypesMessage' => 'error.picture.format',
-                    ])
+                        mimeTypesMessage: 'error.picture.format',
+                    )
                 ],
             ])
 
