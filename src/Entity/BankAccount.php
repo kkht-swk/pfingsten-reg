@@ -42,7 +42,7 @@ class BankAccount
     public function germanIban(): bool {
 
         if ($this->iban == null) {
-            return false;
+            return true;
         }
 
         $prefix = substr(str_replace(' ', '', mb_strtoupper($this->iban)), 0, 2);
@@ -75,7 +75,7 @@ class BankAccount
         return $this->bic;
     }
 
-    public function setBic(string $bic): static
+    public function setBic(?string $bic): static
     {
         $this->bic = $bic;
 

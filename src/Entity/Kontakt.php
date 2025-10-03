@@ -41,7 +41,7 @@ class Kontakt
         return $this->vorname;
     }
 
-    public function setVorname(string $vorname): static
+    public function setVorname(?string $vorname): static
     {
         $this->vorname = $vorname;
 
@@ -53,7 +53,7 @@ class Kontakt
         return $this->nachname;
     }
 
-    public function setNachname(string $nachname): static
+    public function setNachname(?string $nachname): static
     {
         $this->nachname = $nachname;
 
@@ -65,7 +65,7 @@ class Kontakt
         return $this->email;
     }
 
-    public function setEmail(string $email): static
+    public function setEmail(?string $email): static
     {
         $this->email = $email;
 
@@ -77,7 +77,7 @@ class Kontakt
         return $this->phone;
     }
 
-    public function setPhone(string $phone): static
+    public function setPhone(?string $phone): static
     {
         $this->phone = $phone;
 

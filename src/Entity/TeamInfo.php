@@ -81,8 +81,10 @@ class TeamInfo
     // private ?int $gastFleisch = null;
 
 
-    #[ORM\Column]
-    private int $gaeste = 0;
+    #[ORM\Column (nullable: true)]
+    // #[Assert\NotNull(message: 'error.anzahl.notblank')]
+    #[Assert\GreaterThanOrEqual(0)]
+    private ?int $gaeste = null;
 
     #[ORM\Column(length: 1023, nullable: true)]
     private ?string $bemerkung = null;
@@ -129,7 +131,7 @@ class TeamInfo
         return $this->verein;
     }
 
-    public function setVerein(string $verein): static
+    public function setVerein(?string $verein): static
     {
         $this->verein = $verein;
 
@@ -141,7 +143,7 @@ class TeamInfo
         return $this->altersklasse;
     }
 
-    public function setAltersklasse(string $altersklasse): static
+    public function setAltersklasse(?string $altersklasse): static
     {
         $this->altersklasse = $altersklasse;
 
@@ -165,7 +167,7 @@ class TeamInfo
         return $this->ankunftszeit;
     }
 
-    public function setAnkunftszeit(string $ankunftszeit): static
+    public function setAnkunftszeit(?string $ankunftszeit): static
     {
         $this->ankunftszeit = $ankunftszeit;
 
@@ -262,7 +264,7 @@ class TeamInfo
         return $this->gaeste;
     }
 
-    public function setGaeste(int $gaeste): static
+    public function setGaeste(?int $gaeste): static
     {
         $this->gaeste = $gaeste;
 
@@ -274,7 +276,7 @@ class TeamInfo
         return $this->bemerkung;
     }
 
-    public function setBemerkung(string $bemerkung): static
+    public function setBemerkung(?string $bemerkung): static
     {
         $this->bemerkung = $bemerkung;
 

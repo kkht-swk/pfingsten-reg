@@ -23,7 +23,7 @@ class TeamInfoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('verein', TextType::class, [
+            ->add('verein', null, [
                 'label' => 'label.verein',
                 'attr' => [ 'placeholder' => 'placeholder.verein' ],
             ])
@@ -44,6 +44,7 @@ class TeamInfoType extends AbstractType
             ->add('teamname', TextType::class, [
                 'label' => 'label.teamname',
                 'attr' => [ 'placeholder' => 'placeholder.teamname' ],
+                'required' => false,
             ])
 
             ->add('kontakt', KontaktType::class)
@@ -68,11 +69,12 @@ class TeamInfoType extends AbstractType
             ->add('gaeste', IntegerType::class, [
                 'label' => 'label.gaeste',
                 'attr' => [ 'placeholder' => 'placeholder.gaeste' ],
-                'empty_data' => 0,
+                'required' => false,
             ])
             ->add('bemerkung', TextareaType::class, [
                 'label' => 'label.bemerkung',
                 'attr' => [ 'placeholder' => 'placeholder.bemerkung' ],
+                'required' => false,
             ])
 
             ->add('logo', FileType::class, [
