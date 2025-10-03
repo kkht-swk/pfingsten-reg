@@ -16,7 +16,7 @@ team.intro.heading: |
 team.intro.text:
     <p>Herzlich Willkommen beim Pfingstturnier 2026 von Schwarz-Weiß Köln. Vom 23.-25. Mai 2026 wird auf der SWK-Anlage im Kölner Norden "gezockt". Mit diesem Formular können externe Teams, also unsere Gäste, angemeldet werden.</p>
 
-    <p>Bitte fülle alle Daten gewissenhaft aus. Viele der aufgeführten Felder sind <strong>Pflichtfelder</strong>, müssen also vor dem Absenden des Formulars korrekt befüllt sein. 
+    <p>Bitte fülle alle Daten gewissenhaft aus. Viele der aufgeführten Felder sind <strong>Pflichtfelder</strong>, müssen also vor dem Absenden des Formulars korrekt befüllt sein.
     Nach erfolgreichem Abschluss erhält die unten anzugebende Kontaktperson eine Zusammenfassung der Anmeldung per Email. Diese Email enthält einen Link,
     über den bis ca. 14 Tage vor dem Turnier auch noch Anpassungen vorgenommen werden können!</p>
 
@@ -39,22 +39,23 @@ team.verpflegung.heading: |
     Verpflegung
 
 team.verpflegung.text: |
-    <p>Bitte gib an, wie wir die Verpflegung planen sollen: Wieviele Spieler:innen wünschen eine vegane bzw. eine fleischhaltige Ernährung? Wie sieht es bei den Betreuer:innen aus? (Bitte nur ganze Zahlen eingeben.)</p>
+    <p>Wie auch in den Jahren zuvor werdet ihr bei uns "vollverpflegt", d.h., dass alle Spieler:innen und Betreuer:innen bei uns ein Verpflegungspaket (à 90 €) bestellen müssen. <b>Wichtig:</b> Anders als in den Vorjahren ist eine Selbstversorgung für sonstige Gäste <i>nicht mehr möglich</i>. Ihr könnt gerne auch für solche Gäste Verpflegungspakete bestellen. Ansonsten besteht die Möglichkeit, ohne Voranmeldung auf unsere Gastronomie zurückgreifen.</p>
+    <p>Bitte gib an, wieviele vegane bzw. fleischhaltige Verpflegungspakete ihr für Spieler:innen, Betreuer:innen (inkl. Trainer:innen) und sonstige Gäste ihr braucht. (Bitte nur ganze Zahlen eingeben.)</p>
 
 team.verpflegung.kosten: |
-    Insgesamt <span id="s0">{cnt_spieler}</span> Spieler:innen, <span id="s1">{cnt_betreuer}</span> Betreuer:innen - Gesamtkosten: € <span id="m0">{curr_cost}</span>
+    Insgesamt <span id="s0">{cnt_spieler}</span> Spieler:innen, <span id="s1">{cnt_betreuer}</span> Betreuer:innen , <span id="s2">{cnt_gaeste}</span> Gäste - Gesamtkosten: € <span id="m0">{curr_cost}</span>
 
 team.bilder.heading: |
     Bilder (optional)
 
 team.bilder.text: |
-    <p>Wir brauchen von Euch ein aktuelles Logo (für den Spielplan etc.) sowie ein Teambild, das wir gerne auf unserem <a href="https://www.instagram.com/kkht_pfingsten/" target="_blank">Instagram-Kanal</a> verwenden würden - da stellen wir immer alle teilnehmenden Teams vor. Wenn ihr das nicht wollt, lasst das Teambild einfach weg.</p>
+    <p>Wir freuen uns, wenn Ihr uns ein aktuelles Logo (für den Spielplan etc.) sowie ein Teambild zur Verfügung stellt. Diese werden wir auf unserem <a href="https://www.instagram.com/kkht_pfingsten/" target="_blank">Instagram-Kanal</a> verwenden würden - da stellen wir immer alle teilnehmenden Teams vor. Wenn ihr das nicht wollt, lasst das Teambild einfach weg.</p>
 
 team.misc.heading: |
     Sonstiges
 
 team.misc.text: |
-    <p>Hier kann angegeben werden, ob es weitere <i>Campinggäste</i> gibt, die das Team begleiten. Für diese können wir keine Verpflegung etc. einplanen, würden aber gerne informiert werden, damit wir sicherstellen können, dass die Kapazität des Campinggeländes ausreicht. In den <i>Bemerkungen</i> könnt ihr sonstige Kommentare hinterlassen. Wichtig wäre, dass ihr angebt, mit wie vielen <i>Wohnwagen oder Campervans</i> ihr inklusive etwaiger Gäste kommen möchtet (wir müssen prüfen, ob das alles geht und geben Euch Rückmeldung).</p>
+    <p>Hier kann angegeben werden, ob es weitere <i>Campinggäste</i> gibt, die das Team begleiten, und für die <i>kein</i> Verpflegungspaket gebucht wird. Bitte beachtet, dass eine Selbstversorgung auf dem Gelände ab diesem Jahr <i>nicht gestattet</i> ist. Gerne könnt ihr unsere Gastronomie nutzen, dort kann z.B. auch ein Fass Kölsch o.ä. bestellt werden. In den <i>Bemerkungen</i> könnt ihr sonstige Kommentare hinterlassen. Wichtig wäre, dass ihr angebt, mit wie vielen <i>Wohnwagen oder Campervans</i> ihr kommen möchtet (wir müssen prüfen, ob das alles geht und geben Euch Rückmeldung).</p>
 
 team.bank.heading: |
     Bankdaten für SEPA Einzug
@@ -75,7 +76,7 @@ team.summary.text: |
 
     <p>Wir haben eine Email an die angegebene Kontaktadresse ({kontakt_email}) gesendet. Darin enthalten ist ein Link,
     über den bis ca. 14 Tage vor Beginn des Turniers Änderungen möglich sind.</p>
-    
+
     <p>Bei Rückfragen melde Dich bitte beim Orga Team unter <a href="mailto:pfingsten@kkht.de">pfingsten@kkht.de</a>.</p>
 
 # =================================================
@@ -109,6 +110,8 @@ label.spieler.vegan: Spieler:innen vegan
 label.spieler.fleisch: Spieler:innen Fleisch
 label.betreuer.vegan: Betreuer:innen vegan
 label.betreuer.fleisch: Betreuer:innen Fleisch
+label.gaeste.vegan: Gäste vegan
+label.gaeste.fleisch: Gäste Fleisch
 placeholder.anzahl: Anzahl
 
 label.gaeste: Zusätzliche Campinggäste

@@ -36,6 +36,31 @@
           </div>
         </div>
 
+        <h3 class="mt-5 mb-3">{{ 'team.bilder.heading'|trans }}</h3>
+        {{ 'team.bilder.text'|trans|raw }}
+        <div class="row g-2 align-items-center mb-3">
+          <div class="col-12 col-md-2">
+            <figure style="text-align: center">
+              <img src="{{ asset(logoPath) }}" width="80px" alt="Aktuelles Logo">
+              <figcaption>Logo</figcaption>
+            </figure>
+          </div>
+          <div class="col-12 col-md-10">
+            {{ form_row(form.logo) }}
+          </div>
+        </div>
+        <div class="row g-2 align-items-center">
+          <div class="col-12 col-md-2">
+            <figure style="text-align: center">
+              <img src="{{ asset(picturePath) }}" width="120px" alt="Aktuelles Teambild">
+              <figcaption>Team</figcaption>
+            </figure>
+          </div>
+          <div class="col-12 col-md-10 ">
+            {{ form_row(form.picture) }}
+          </div>
+        </div>
+
         <h3 class="mt-5 mb-3">{{ 'team.kontakt.heading'|trans }}</h3>
         {{ 'team.kontakt.text'|trans|raw }}
         <div class="row g-2">
@@ -68,37 +93,20 @@
           <div class="col-sm-6 col-lg-3">
             {{ form_row(form.betreuerFleisch) }}
           </div>
+          <div class="col-sm-6 col-lg-3">
+            {{ form_row(form.gaesteVegan) }}
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            {{ form_row(form.gaesteFleisch) }}
+          </div>
         </div>
         <p><strong>{{ 'team.verpflegung.kosten'|trans({
           'cnt_spieler': cnt_spieler,
           'cnt_betreuer': cnt_betreuer,
+          'cnt_gaeste': cnt_gaeste,
           'curr_cost': curr_cost,
           })|raw }}</strong></p>
 
-        <h3 class="mt-5 mb-3">{{ 'team.bilder.heading'|trans }}</h3>
-        {{ 'team.bilder.text'|trans|raw }}
-        <div class="row g-2 align-items-center mb-3">
-          <div class="col-12 col-md-2">
-            <figure style="text-align: center">
-              <img src="{{ asset(logoPath) }}" width="80px" alt="Aktuelles Logo">
-              <figcaption>Logo</figcaption>
-            </figure>
-          </div>
-          <div class="col-12 col-md-10">
-            {{ form_row(form.logo) }}
-          </div>
-        </div>
-        <div class="row g-2 align-items-center">
-          <div class="col-12 col-md-2">
-            <figure style="text-align: center">
-              <img src="{{ asset(picturePath) }}" width="120px" alt="Aktuelles Teambild">
-              <figcaption>Team</figcaption>
-            </figure>
-          </div>
-          <div class="col-12 col-md-10 ">
-            {{ form_row(form.picture) }}
-          </div>
-        </div>
 
         <h3 class="mt-5 mb-3">{{ 'team.misc.heading'|trans }}</h3>
         {{ 'team.misc.text'|trans|raw }}

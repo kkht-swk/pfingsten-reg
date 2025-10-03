@@ -70,15 +70,15 @@ class TeamInfo
     #[Assert\GreaterThanOrEqual(0)]
     private ?int $betreuerFleisch = null;
 
-    // #[ORM\Column]
-    // #[Assert\NotNull(message: 'error.anzahl.notblank')]
-    // #[Assert\GreaterThanOrEqual(0)]
-    // private ?int $gastVegan = null;
+    #[ORM\Column]
+    #[Assert\NotNull(message: 'error.anzahl.notblank')]
+    #[Assert\GreaterThanOrEqual(0)]
+    private ?int $gaesteVegan = null;
 
-    // #[ORM\Column]
-    // #[Assert\NotNull(message: 'error.anzahl.notblank')]
-    // #[Assert\GreaterThanOrEqual(0)]
-    // private ?int $gastFleisch = null;
+    #[ORM\Column]
+    #[Assert\NotNull(message: 'error.anzahl.notblank')]
+    #[Assert\GreaterThanOrEqual(0)]
+    private ?int $gaesteFleisch = null;
 
 
     #[ORM\Column (nullable: true)]
@@ -301,31 +301,33 @@ class TeamInfo
             intval($this->spielerVegan) +
             intval($this->spielerFleisch) +
             intval($this->betreuerVegan) +
-            intval($this->betreuerFleisch)
+            intval($this->betreuerFleisch) +
+            intval($this->gaesteVegan) +
+            intval($this->gaesteFleisch)
         );
     }
 
-    // public function getGastVegan(): ?int
-    // {
-    //     return $this->gastVegan;
-    // }
+    public function getGaesteVegan(): ?int
+    {
+        return $this->gaesteVegan;
+    }
 
-    // public function setGastVegan(?int $gastVegan): static
-    // {
-    //     $this->gastVegan = $gastVegan;
+    public function setGaesteVegan(?int $gaesteVegan): static
+    {
+        $this->gaesteVegan = $gaesteVegan;
 
-    //     return $this;
-    // }
+        return $this;
+    }
 
-    // public function getGastFleisch(): ?int
-    // {
-    //     return $this->gastFleisch;
-    // }
+    public function getGaesteFleisch(): ?int
+    {
+        return $this->gaesteFleisch;
+    }
 
-    // public function setGastFleisch(?int $gastFleisch): static
-    // {
-    //     $this->gastFleisch = $gastFleisch;
+    public function setGaesteFleisch(?int $gaesteFleisch): static
+    {
+        $this->gaesteFleisch = $gaesteFleisch;
 
-    //     return $this;
-    // }
+        return $this;
+    }
 }

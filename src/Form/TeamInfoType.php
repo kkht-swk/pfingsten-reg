@@ -65,6 +65,14 @@ class TeamInfoType extends AbstractType
                 'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
                 'label' => 'label.betreuer.fleisch',
             ])
+            ->add('gaesteVegan', IntegerType::class, [
+                'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
+                'label' => 'label.gaeste.vegan',
+            ])
+            ->add('gaesteFleisch', IntegerType::class, [
+                'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
+                'label' => 'label.gaeste.fleisch',
+            ])
 
             ->add('gaeste', IntegerType::class, [
                 'label' => 'label.gaeste',

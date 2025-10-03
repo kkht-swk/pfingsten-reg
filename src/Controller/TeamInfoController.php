@@ -152,10 +152,13 @@ class TeamInfoController extends AbstractController
         $x2 = intval($form->get('spielerFleisch')->getData());
         $x3 = intval($form->get('betreuerVegan')->getData());
         $x4 = intval($form->get('betreuerFleisch')->getData());
+        $x5 = intval($form->get('gaesteVegan')->getData());
+        $x6 = intval($form->get('gaesteFleisch')->getData());
 
         $cntSpieler = $x1 + $x2;
         $cntBetreuer = $x3 + $x4;
-        $currcost = 90 * ($x1 + $x2 + $x3 + $x4);
+        $cntGaeste = $x5 + $x6;
+        $currcost = 90 * ($x1 + $x2 + $x3 + $x4 + $x5 + $x6);
 
         $hasErrors = false;
 
@@ -186,6 +189,7 @@ class TeamInfoController extends AbstractController
             'picturePath' => $picturePath,
             'cnt_spieler' => $cntSpieler,
             'cnt_betreuer' => $cntBetreuer,
+            'cnt_gaeste' => $cntGaeste,
             'curr_cost' => $currcost,
             'form' => $form,
         ]);
