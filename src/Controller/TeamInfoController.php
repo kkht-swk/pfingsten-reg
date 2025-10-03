@@ -54,11 +54,11 @@ class TeamInfoController extends AbstractController
                 'editLink' => $myurl
             ])
         ;
-    
+
         $this->mailer->send($email);
     }
 
-    private function storePic(?UploadedFile $file, string $fname, string $prefix): ?string 
+    private function storePic(?UploadedFile $file, string $fname, string $prefix): ?string
     {
         // $prefix is "logo" or "team"
         if ($file) {
@@ -79,7 +79,7 @@ class TeamInfoController extends AbstractController
     private function saveTeamInfo(
         Form $form,
         TeamInfo $ti,
-        TeamInfoRepository $repos) 
+        TeamInfoRepository $repos)
     {
             $fname = $this->slugger->slug($ti->getVerein() . "_" . $ti->getAltersklasse());
             $logoPath = $this->storePic($form->get('logo')->getData(), $fname, 'logo');
@@ -108,12 +108,12 @@ class TeamInfoController extends AbstractController
         $route = $request->attributes->get('_route');
         $newroute = str_replace('_default', '', $route);
 
-        return $this->redirectToRoute($newroute, [ 
+        return $this->redirectToRoute($newroute, [
             'hashkey' => $hashkey,
             '_locale' => $locale
         ]);
     }
-        
+
 
 
     #[Route('/{_locale}/team/register', name: 'app_team_new',
@@ -124,7 +124,7 @@ class TeamInfoController extends AbstractController
         requirements: [ '_locale' => 'en|de|nl' ])]
     public function register(
         ?string $hashkey,
-        Request $request, 
+        Request $request,
         TeamInfoRepository $repos): Response
     {
         $logoPath = 'pics/LogoPlaceholder.png';
@@ -148,11 +148,11 @@ class TeamInfoController extends AbstractController
         $form = $this->createForm(TeamInfoType::class, $ti);
         $form->handleRequest($request);
 
-        $x1 = intval($form->get('spielervegan')->getData());
-        $x2 = intval($form->get('spielerfleisch')->getData());
-        $x3 = intval($form->get('betreuervegan')->getData());
-        $x4 = intval($form->get('betreuerfleisch')->getData());
-        
+        $x1 = intval($form->get('spielerVegan')->getData());
+        $x2 = intval($form->get('spielerFleisch')->getData());
+        $x3 = intval($form->get('betreuerVegan')->getData());
+        $x4 = intval($form->get('betreuerFleisch')->getData());
+
         $cntSpieler = $x1 + $x2;
         $cntBetreuer = $x3 + $x4;
         $currcost = 90 * ($x1 + $x2 + $x3 + $x4);
@@ -178,7 +178,7 @@ class TeamInfoController extends AbstractController
             else {
                 $hasErrors = true;
             }
-        } 
+        }
 
         return $this->render('team_info/team_form.html.twig', [
             'hasErrors' => $hasErrors,
@@ -230,12 +230,12 @@ class TeamInfoController extends AbstractController
     }
 
     #[Route('/{_locale}/team/delete/{id}', name: 'app_team_delete')]
-    public function delete(TeamInfo $ti, 
+    public function delete(TeamInfo $ti,
         TeamInfoRepository $repos,
         LoggerInterface $logger): Response
     {
         $repos->delete($ti, true);
-        $logger->log('WARNING', 'Deleting team ' . $ti->getId() . ' - ' . 
+        $logger->log('WARNING', 'Deleting team ' . $ti->getId() . ' - ' .
             $ti->getVerein() . ' (' . $ti->getAltersklasse() . ')');
         return $this->redirectToRoute('app_team_list');
     }
@@ -266,7 +266,7 @@ class TeamInfoController extends AbstractController
         }
 
         $headers = array('Altersklasse', 'Verein', 'Ankunft', 'Gäste',
-            'Spieler vegan', 'Spieler Fleisch', 'Betreuer vegan', 'Betreuer Fleisch', 
+            'Spieler vegan', 'Spieler Fleisch', 'Betreuer vegan', 'Betreuer Fleisch',
             'Kontakt', 'email', 'tel',
             'IBAN', 'BIC', 'Bank', 'Inhaber'
         );

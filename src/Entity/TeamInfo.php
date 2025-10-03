@@ -56,19 +56,30 @@ class TeamInfo
     private ?int $spielerVegan = null;
 
     #[ORM\Column]
-    #[Assert\NotBlank(message: 'error.anzahl.notblank')]
+    #[Assert\NotNull(message: 'error.anzahl.notblank')]
     #[Assert\GreaterThanOrEqual(0)]
     private ?int $spielerFleisch = null;
 
     #[ORM\Column]
-    #[Assert\NotBlank(message: 'error.anzahl.notblank')]
+    #[Assert\NotNull(message: 'error.anzahl.notblank')]
     #[Assert\GreaterThanOrEqual(0)]
     private ?int $betreuerVegan = null;
 
     #[ORM\Column]
-    #[Assert\NotBlank(message: 'error.anzahl.notblank')]
+    #[Assert\NotNull(message: 'error.anzahl.notblank')]
     #[Assert\GreaterThanOrEqual(0)]
     private ?int $betreuerFleisch = null;
+
+    // #[ORM\Column]
+    // #[Assert\NotNull(message: 'error.anzahl.notblank')]
+    // #[Assert\GreaterThanOrEqual(0)]
+    // private ?int $gastVegan = null;
+
+    // #[ORM\Column]
+    // #[Assert\NotNull(message: 'error.anzahl.notblank')]
+    // #[Assert\GreaterThanOrEqual(0)]
+    // private ?int $gastFleisch = null;
+
 
     #[ORM\Column]
     private int $gaeste = 0;
@@ -79,7 +90,6 @@ class TeamInfo
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?BankAccount $account = null;
-
 
     public function __construct() {
         $this->createdAt = new DateTimeImmutable();
@@ -204,7 +214,7 @@ class TeamInfo
         return $this->spielerVegan;
     }
 
-    public function setSpielerVegan(int $spielerVegan): static
+    public function setSpielerVegan(?int $spielerVegan): static
     {
         $this->spielerVegan = $spielerVegan;
 
@@ -216,7 +226,7 @@ class TeamInfo
         return $this->spielerFleisch;
     }
 
-    public function setSpielerFleisch(int $spielerFleisch): static
+    public function setSpielerFleisch(?int $spielerFleisch): static
     {
         $this->spielerFleisch = $spielerFleisch;
 
@@ -228,7 +238,7 @@ class TeamInfo
         return $this->betreuerVegan;
     }
 
-    public function setBetreuerVegan(int $betreuerVegan): static
+    public function setBetreuerVegan(?int $betreuerVegan): static
     {
         $this->betreuerVegan = $betreuerVegan;
 
@@ -240,7 +250,7 @@ class TeamInfo
         return $this->betreuerFleisch;
     }
 
-    public function setBetreuerFleisch(int $betreuerFleisch): static
+    public function setBetreuerFleisch(?int $betreuerFleisch): static
     {
         $this->betreuerFleisch = $betreuerFleisch;
 
@@ -292,4 +302,28 @@ class TeamInfo
             intval($this->betreuerFleisch)
         );
     }
+
+    // public function getGastVegan(): ?int
+    // {
+    //     return $this->gastVegan;
+    // }
+
+    // public function setGastVegan(?int $gastVegan): static
+    // {
+    //     $this->gastVegan = $gastVegan;
+
+    //     return $this;
+    // }
+
+    // public function getGastFleisch(): ?int
+    // {
+    //     return $this->gastFleisch;
+    // }
+
+    // public function setGastFleisch(?int $gastFleisch): static
+    // {
+    //     $this->gastFleisch = $gastFleisch;
+
+    //     return $this;
+    // }
 }

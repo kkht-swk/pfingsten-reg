@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\TeamInfo;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Event\PreSubmitEvent;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -11,8 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
 use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\File;
@@ -22,11 +23,9 @@ class TeamInfoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('verein', TextType::class, [ 
+            ->add('verein', TextType::class, [
                 'label' => 'label.verein',
-                'attr' => [ 
-                    'placeholder' => 'placeholder.verein' 
-                ],
+                'attr' => [ 'placeholder' => 'placeholder.verein' ],
             ])
             ->add('altersklasse', ChoiceType::class, [
                 'label' => 'label.altersklasse',
@@ -49,41 +48,21 @@ class TeamInfoType extends AbstractType
 
             ->add('kontakt', KontaktType::class)
 
-            ->add('spielervegan', IntegerType::class, [
+            ->add('spielerVegan', IntegerType::class, [
                 'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
                 'label' => 'label.spieler.vegan',
-                'constraints' => [
-                    new NotBlank(null, 'error.anzahl.notblank' ),
-                    new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
-                ],
-                'empty_data' => 0
             ])
-            ->add('spielerfleisch', IntegerType::class, [
+            ->add('spielerFleisch', IntegerType::class, [
                 'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
                 'label' => 'label.spieler.fleisch',
-                'constraints' => [
-                    new NotBlank(null, 'error.anzahl.notblank' ),
-                    new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
-                ],
-                'empty_data' => 0
             ])
-            ->add('betreuervegan', IntegerType::class, [
+            ->add('betreuerVegan', IntegerType::class, [
                 'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
                 'label' => 'label.betreuer.vegan',
-                'constraints' => [
-                    new NotBlank(null, 'error.anzahl.notblank' ),
-                    new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
-                ],
-                'empty_data' => 0,
             ])
-            ->add('betreuerfleisch', IntegerType::class, [
+            ->add('betreuerFleisch', IntegerType::class, [
                 'attr' => [ 'placeholder' => 'placeholder.anzahl' ],
                 'label' => 'label.betreuer.fleisch',
-                'constraints' => [
-                    new NotBlank(null, 'error.anzahl.notblank' ),
-                    new GreaterThanOrEqual(0, null, 'error.anzahl.greaterEqualZero'),
-                ],
-                'empty_data' => 0,
             ])
 
             ->add('gaeste', IntegerType::class, [
@@ -156,10 +135,10 @@ class TeamInfoType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => TeamInfo::class,
-            'attr' => [ 
+            'attr' => [
                 'novalidate' => 'novalidate', // comment me to reactivate the html5 validation!  🚥
-                // 'class' => 'needs-validation' 
-            ], 
+                // 'class' => 'needs-validation'
+            ],
         ]);
     }
 

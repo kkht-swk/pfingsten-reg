@@ -9,10 +9,10 @@ import './styles/app.css';
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
 
 // Get references to the input fields
-const input1 = document.getElementById('team_info_spielervegan');
-const input2 = document.getElementById('team_info_spielerfleisch');
-const input3 = document.getElementById('team_info_betreuervegan');
-const input4 = document.getElementById('team_info_betreuerfleisch');
+const input1 = document.getElementById('team_info_spielerVegan');
+const input2 = document.getElementById('team_info_spielerFleisch');
+const input3 = document.getElementById('team_info_betreuerVegan');
+const input4 = document.getElementById('team_info_betreuerFleisch');
 
 // Get reference to the element where the sum will be displayed
 const sum0Display = document.getElementById('m0');
