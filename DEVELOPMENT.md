@@ -122,7 +122,9 @@ bin/console cache:clear
 
 ### Debugging?
 
-TBD
+Grundsätzlich muss auf dem Entwicklungssystem eine zur PHP-Version passende Version von XDebug installiert sein. (Bei Debian/Ubunut gesciht dies einfach durch Installation des Paketes phpX.Y-xebug.)
+
+Dazu benötigt PHP entsprechende Einstellungen, u.a. zur Integration mit VS Code. Diese sind in der Datei `php.ini` hinterlegt, die beim Starten des Servers mit dem symfony client eingelesen wird - siehe dazu `symfony php -i` bzw. ``symfony php --ini`. Damit funktioniert das Debugging out-of-the-box: Einfach den Debugger in VS Code mit "Listen for XDebug" starten und entsprechende Breakpoints setzen etc.
 
 ## Deployment in Produktion
 
