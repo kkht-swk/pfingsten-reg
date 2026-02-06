@@ -128,6 +128,13 @@ Dazu benötigt PHP entsprechende Einstellungen, u.a. zur Integration mit VS Code
 
 ## Deployment in Produktion
 
+Alles, was man braucht, zusammenpacken und auf den Server kopieren:
+
+```
+tar xzvf ../pf.tgz assets/ bin/ composer.json composer.lock config/ importmap.php LICENSE migrations/ public/ src/ templates/ translations/ .env.prod.local
+scp ../pf.tgz contabo: 
+```
+
 Die `.env` Datei auf dem Server entsprechend anpassen (u.a. `APP_ENV=prod` und DB sowie Mail-Konfiguration).
 
 Auf dem Server eine DB anlegen und die entsprechenden Strukturen anlegen:
