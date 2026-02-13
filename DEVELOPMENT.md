@@ -131,8 +131,8 @@ Dazu benötigt PHP entsprechende Einstellungen, u.a. zur Integration mit VS Code
 Alles, was man braucht, zusammenpacken und auf den Server kopieren:
 
 ```
-tar xzvf ../pf.tgz assets/ bin/ composer.json composer.lock config/ importmap.php LICENSE migrations/ public/ src/ templates/ translations/ .env.prod.local
-scp ../pf.tgz contabo: 
+tar czvf ../pf.tgz assets/ bin/ composer.json composer.lock config/ importmap.php LICENSE migrations/ public/ src/ templates/ translations/ .env.prod.local
+scp ../pf.tgz <server>: 
 ```
 
 Die `.env` Datei auf dem Server entsprechend anpassen (u.a. `APP_ENV=prod` und DB sowie Mail-Konfiguration).
