@@ -18,13 +18,15 @@
 <tr><td style="padding-left: 20px;">Spieler:innen fleisch:</td><td>{{ team.spielerFleisch }}</td></tr>
 <tr><td style="padding-left: 20px;">Betreuer:innen vegan:</td><td>{{ team.betreuerVegan }}</td></tr>
 <tr><td style="padding-left: 20px;">Betreuer:innen fleisch:</td><td>{{ team.betreuerFleisch }}</td></tr>
+<tr><td style="padding-left: 20px;">Gäste vegan:</td><td>{{ team.gaesteVegan }}</td></tr>
+<tr><td style="padding-left: 20px;">Gäste fleisch:</td><td>{{ team.gaesteFleisch }}</td></tr>
 <tr><td style="padding-left: 20px;">Gesamtkosten in €:</td><td>{{ team.cost }}</td></tr>
 
 <tr style="line-height: 1.6;"><td colspan="2"><strong>Sonstiges</strong></td></tr>
 <tr><td style="padding-left: 20px;">Ankunftszeit:</td><td>{{ team.ankunftszeit }}</td></tr>
 <tr><td style="padding-left: 20px;">Logo:</td><td>{{ team.logoPath ? 'Liegt vor' : 'Liegt nicht vor' }}</td></tr>
 <tr><td style="padding-left: 20px;">Teambild:</td><td>{{ team.picturePath ? 'Liegt vor' : 'Liegt nicht vor' }}</td></tr>
-<tr><td style="padding-left: 20px;">Gäste:</td><td>{{ team.gaeste }}</td></tr>
+<tr><td style="padding-left: 20px;">Gäste:</td><td>{{ team.gaeste ?? '-' }}</td></tr>
 <tr><td style="padding-left: 20px;">Bemerkung:</td><td>{{ team.bemerkung }}</td></tr>
 
 <tr style="line-height: 1.6;"><td colspan="2"><strong>Bankverbindung</strong></td></tr>

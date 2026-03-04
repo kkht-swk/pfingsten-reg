@@ -259,7 +259,7 @@ class TeamInfo
         return $this;
     }
 
-    public function getGaeste(): int
+    public function getGaeste(): ?int
     {
         return $this->gaeste;
     }

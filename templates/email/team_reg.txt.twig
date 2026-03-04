@@ -15,13 +15,15 @@ Verpflegung:
     Spieler:innen fleisch:  {{ team.spielerFleisch }}
     Betreuer:innen vegan:   {{ team.betreuerVegan }}
     Betreuer:innen fleisch: {{ team.betreuerFleisch }}
+    Gäste vegan:            {{ team.gaesteVegan }}
+    Gäste fleisch:          {{ team.gaesteFleisch }}
     Gesamtkosten in €:      {{ team.cost }}
 
 Sonstiges:
     Ankunftszeit: {{ team.ankunftszeit }}
     Logo:         {{ team.logoPath ? 'Liegt vor' : 'Liegt nicht vor' }}
     Teambild:     {{ team.picturePath ? 'Liegt vor' : 'Liegt nicht vor' }}
-    Gäste:        {{ team.gaeste }}
+    Gäste:        {{ team.gaeste ?? '-' }}
     Bemerkung:    {{ team.bemerkung }}
 
 Bankverbindung:
