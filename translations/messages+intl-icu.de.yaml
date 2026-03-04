@@ -91,8 +91,8 @@ label.mU12:	mU12
 label.wU14: wU14
 label.mU14: mU14
 
-label.ankunftszeit: Ankunftszeit
-placeholder.ankunftszeit: Ankunftszeit (ca.)
+label.ankunftszeit: Ankunftstag/-zeit
+placeholder.ankunftszeit: Ankunftstag/-zeit (ca.)
 
 label.teamname: Teamname
 placeholder.teamname: Teamname (optional)
