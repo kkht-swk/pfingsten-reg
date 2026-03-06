@@ -18,6 +18,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use DateTimeImmutable;
 
 
 class TeamInfoController extends AbstractController
@@ -165,6 +166,27 @@ class TeamInfoController extends AbstractController
         if ($form->isSubmitted()) {
 
             if ($form->isValid()) {
+
+                // Check for duplicate submission (submitted within last 10 seconds with same verein + altersklasse)
+                if (!$hashkey) { // Only check for new registrations
+                    $recentSubmission = $repos->createQueryBuilder('t')
+                        ->where('t.verein = :verein')
+                        ->andWhere('t.altersklasse = :altersklasse')
+                        ->andWhere('t.createdAt > :recentTime')
+                        ->setParameter('verein', $ti->getVerein())
+                        ->setParameter('altersklasse', $ti->getAltersklasse())
+                        ->setParameter('recentTime', new DateTimeImmutable('-10 seconds'))
+                        ->setMaxResults(1)
+                        ->getQuery()
+                        ->getOneOrNullResult();
+
+                    if ($recentSubmission) {
+                        // Duplicate detected - redirect to existing submission
+                        return $this->redirectToRoute('app_team_summary', [
+                            'hashkey' => $recentSubmission->getHashkey()
+                        ]);
+                    }
+                }
 
                 $this->saveTeamInfo($form, $ti, $repos);
 

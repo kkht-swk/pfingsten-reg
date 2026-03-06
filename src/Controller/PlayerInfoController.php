@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use DateTimeImmutable;
 
 class PlayerInfoController extends AbstractController
 {
@@ -57,10 +58,31 @@ class PlayerInfoController extends AbstractController
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
 
+                // Check for duplicate submission (submitted within last 10 seconds with same name + altersklasse)
+                $recentSubmission = $repos->createQueryBuilder('p')
+                    ->where('p.vorname = :vorname')
+                    ->andWhere('p.nachname = :nachname')
+                    ->andWhere('p.altersklasse = :altersklasse')
+                    ->andWhere('p.createdAt > :recentTime')
+                    ->setParameter('vorname', $pi->getVorname())
+                    ->setParameter('nachname', $pi->getNachname())
+                    ->setParameter('altersklasse', $pi->getAltersklasse())
+                    ->setParameter('recentTime', new DateTimeImmutable('-10 seconds'))
+                    ->setMaxResults(1)
+                    ->getQuery()
+                    ->getOneOrNullResult();
+
+                if ($recentSubmission) {
+                    // Duplicate detected - redirect to existing submission
+                    return $this->redirectToRoute('app_player_summary',
+                        ['hashkey' => $recentSubmission->getHashkey()]
+                    );
+                }
+
                 $repos->save($pi, true);
                 $this->sendHtmlEmail($pi);
 
-                return $this->redirectToRoute('app_player_summary', 
+                return $this->redirectToRoute('app_player_summary',
                     ['hashkey' => $pi->getHashkey()]
                 );
             }

@@ -58,3 +58,32 @@ input3.addEventListener('input', calculateSum);
 input4.addEventListener('input', calculateSum);
 input5.addEventListener('input', calculateSum);
 input6.addEventListener('input', calculateSum);
+
+// Prevent double form submission for all forms
+function preventDoubleSubmit(formSelector) {
+    const form = document.querySelector(formSelector);
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            const submitButton = form.querySelector('button[type="submit"]');
+            if (submitButton && !submitButton.disabled) {
+                // Disable the button
+                submitButton.disabled = true;
+                // Add visual feedback
+                const originalText = submitButton.textContent;
+                submitButton.textContent = originalText + ' ...';
+                submitButton.style.opacity = '0.6';
+
+                // Re-enable after 3 seconds as a safety measure (in case of validation errors)
+                setTimeout(function() {
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalText;
+                    submitButton.style.opacity = '1';
+                }, 3000);
+            }
+        });
+    }
+}
+
+// Apply to both team and player forms
+preventDoubleSubmit('form[name="team_info"]');
+preventDoubleSubmit('form[name="player_info"]');
