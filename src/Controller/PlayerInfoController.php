@@ -14,6 +14,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use DateTimeImmutable;
+use OpenSpout\Common\Entity\Row;
+use OpenSpout\Writer\XLSX\Writer;
 
 class PlayerInfoController extends AbstractController
 {
@@ -127,19 +129,11 @@ class PlayerInfoController extends AbstractController
     }
 
     #[Route('/player/csv', name: 'app_player_csv')]
-    public function csv(PlayerInfoRepository $repos): Response
+    public function csv(PlayerInfoRepository $repos, LoggerInterface $logger): Response
     {
-        // $altersklassen = [ 'wU12', 'mU12', 'wU14', 'mU14' ];
-        // $tiMap = [];
-        // foreach ($altersklassen as $ak) {
-        //     // $piMap[$ak] = $repos->findByField('altersklasse', $ak);
-        //     $tiMap[$ak] = $repos->findBy(
-        //         [ 'altersklasse' => $ak ],
-        //         [ 'verein' => 'ASC' ]
-        //     );
-        // }
 
         $piList = $repos->findBy([], ['altersklasse' => 'ASC', 'nachname' => 'ASC']);
+        $logger->log('INFO', 'Playerlist has length: ' . count($piList));
 
 
         // we use a threshold of 1 MB (1024 * 1024), it's just an example
@@ -192,6 +186,42 @@ class PlayerInfoController extends AbstractController
         return $response;
     }
 
+    #[Route('/player/xls', name: 'app_player_xls')]
+    public function xls(PlayerInfoRepository $repos,
+        LoggerInterface $logger): Response
+    {
+        $piList = $repos->findBy([], ['altersklasse' => 'ASC', 'nachname' => 'ASC']);
+        $logger->log('INFO', 'Playerlist has length: ' . count($piList));
+
+        $writer = new Writer();
+        $writer->openToBrowser('playerlist.xlsx');
+
+        $writer->addRow(Row::fromValues([
+            'Altersklasse', 'Vorname', 'Nachname', 'Food',
+            'Kontaktperson', 'Email', 'Telefon',
+            'IBAN', 'Bank', 'BIC', 'Kontoinh']));
+
+        foreach ($piList as $pi) {
+            $k = $pi->getKontakt();
+            $b = $pi->getAccount();
+
+            $writer->addRow(Row::fromValues([
+                $pi->getAltersklasse(),
+                $pi->getVorname(),
+                $pi->getNachname(),
+                $pi->getNahrung(),
+                $k->getVorname() . ' ' . $k->getNachname(),
+                $k->getEmail(),
+                $k->getPhone(),
+                $b->getIban(),
+                $b->getBank(),
+                $b->getBic(),
+                $b->getKontoinhaber(),
+            ]));
+        }
+        $writer->close();
+        exit;
+    }
 
     #[Route('/player/delete/{id}', name: 'app_player_delete')]
     public function delete(

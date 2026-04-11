@@ -20,6 +20,8 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use DateTimeImmutable;
 
+use OpenSpout\Common\Entity\Row;
+use OpenSpout\Writer\XLSX\Writer;
 
 class TeamInfoController extends AbstractController
 {
@@ -266,6 +268,50 @@ class TeamInfoController extends AbstractController
         return $this->redirectToRoute('app_team_list');
     }
 
+    #[Route('/{_locale}/team/xls', name: 'app_team_xls')]
+    public function xls(TeamInfoRepository $repos,
+        LoggerInterface $logger): Response
+    {
+        $tiList = $repos->findBy([], ['altersklasse' => 'ASC', 'verein' => 'ASC']);
+        $logger->log('INFO', 'Teamlist has length: ' . count($tiList));
+
+        $writer = new Writer();
+        $writer->openToBrowser('teamlist.xlsx');
+
+        $writer->addRow(Row::fromValues([
+            'Altersklasse', 'Verein', 'Ankunft', 'Gäste',
+            'Spieler vegan', 'Spieler Fleisch', 'Betreuer vegan', 'Betreuer Fleisch', 'Gäste vegan', 'Gäste Fleisch',
+            'Kontakt', 'email', 'tel',
+            'IBAN', 'BIC', 'Bank', 'Inhaber']));
+
+        foreach ($tiList as $ti) {
+            $k = $ti->getKontakt();
+            $b = $ti->getAccount();
+
+            $writer->addRow(Row::fromValues([
+                $ti->getAltersklasse(),
+                $ti->getVerein(),
+                $ti->getAnkunftszeit(),
+                $ti->getGaeste(),
+                $ti->getSpielerVegan(),
+                $ti->getSpielerFleisch(),
+                $ti->getBetreuerVegan(),
+                $ti->getBetreuerFleisch(),
+                $ti->getGaesteVegan(),
+                $ti->getGaesteFleisch(),
+                $k->getVorname() . ' ' . $k->getNachname(),
+                $k->getEmail(),
+                $k->getPhone(),
+                $b->getIban(),
+                $b->getBic(),
+                $b->getBank(),
+                $b->getKontoinhaber(),
+            ]));
+        }
+        $writer->close();
+        exit;
+    }
+
     #[Route('/{_locale}/team/csv', name: 'app_team_csv')]
     public function csv(TeamInfoRepository $repos,
         LoggerInterface $logger): Response
@@ -282,6 +328,8 @@ class TeamInfoController extends AbstractController
 
         $tiList = $repos->findBy([], ['altersklasse' => 'ASC', 'verein' => 'ASC']);
         $logger->log('INFO', 'Teamlist has length: ' . count($tiList));
+
+
 
 
         // we use a threshold of 1 MB (1024 * 1024), it's just an example
