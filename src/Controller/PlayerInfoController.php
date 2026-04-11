@@ -43,7 +43,7 @@ class PlayerInfoController extends AbstractController
                 'account' => $ac
             ])
         ;
-    
+
         $this->mailer->send($email);
     }
 
@@ -89,7 +89,7 @@ class PlayerInfoController extends AbstractController
             else {
                 $hasErrors = true;
             }
-        } 
+        }
 
         return $this->render('player_info/player_form.html.twig', [
             'hasErrors' => $hasErrors,
@@ -171,17 +171,19 @@ class PlayerInfoController extends AbstractController
         }
 
 
-        fputcsv($fd, $headers);
+        fputcsv($fd, $headers, ";");
         foreach($records as $record) {
-            fputcsv($fd, $record);
+            fputcsv($fd, $record, ";");
         }
 
         rewind($fd);
         $csv = stream_get_contents($fd);
+        $csv = mb_convert_encoding($csv, 'ISO-8859-15', 'UTF-8');
         fclose($fd); // releases the memory (or tempfile)
 
         // https://symfony.com/doc/6.4/components/http_foundation.html#serving-files
         $response = new Response($csv);
+        $response->headers->set('Content-Type', 'text/csv; charset=ISO-8859-15');
         $disposition = HeaderUtils::makeDisposition(
             HeaderUtils::DISPOSITION_ATTACHMENT,
             'playerlist.csv'
@@ -193,7 +195,7 @@ class PlayerInfoController extends AbstractController
 
     #[Route('/player/delete/{id}', name: 'app_player_delete')]
     public function delete(
-        PlayerInfo $pi, 
+        PlayerInfo $pi,
         PlayerInfoRepository $repos,
         LoggerInterface $logger): Response
     {

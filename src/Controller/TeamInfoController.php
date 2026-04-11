@@ -292,7 +292,7 @@ class TeamInfoController extends AbstractController
         }
 
         $headers = array('Altersklasse', 'Verein', 'Ankunft', 'Gäste',
-            'Spieler vegan', 'Spieler Fleisch', 'Betreuer vegan', 'Betreuer Fleisch',
+            'Spieler vegan', 'Spieler Fleisch', 'Betreuer vegan', 'Betreuer Fleisch', 'Gäste vegan', 'Gäste Fleisch',
             'Kontakt', 'email', 'tel',
             'IBAN', 'BIC', 'Bank', 'Inhaber'
         );
@@ -311,9 +311,11 @@ class TeamInfoController extends AbstractController
                 $ti->getSpielerFleisch(),
                 $ti->getBetreuerVegan(),
                 $ti->getBetreuerFleisch(),
+                $ti->getGaesteVegan(),
+                $ti->getGaesteFleisch(),
                 $k->getVorname() . ' ' . $k->getNachname(),
                 $k->getEmail(),
-                $k->getPhone(),
+                "'" . $k->getPhone(),
                 $b->getIban(),
                 $b->getBic(),
                 $b->getBank(),
@@ -323,17 +325,19 @@ class TeamInfoController extends AbstractController
         }
 
 
-        fputcsv($fd, $headers);
+        fputcsv($fd, $headers, ";");
         foreach($records as $record) {
-            fputcsv($fd, $record);
+            fputcsv($fd, $record, ";");
         }
 
         rewind($fd);
         $csv = stream_get_contents($fd);
+        $csv = mb_convert_encoding($csv, 'ISO-8859-15', 'UTF-8');
         fclose($fd); // releases the memory (or tempfile)
 
         // https://symfony.com/doc/6.4/components/http_foundation.html#serving-files
         $response = new Response($csv);
+        $response->headers->set('Content-Type', 'text/csv; charset=ISO-8859-15');
         $disposition = HeaderUtils::makeDisposition(
             HeaderUtils::DISPOSITION_ATTACHMENT,
             'teamlist.csv'
