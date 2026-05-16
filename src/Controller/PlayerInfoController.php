@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Config;
 use App\Entity\PlayerInfo;
 use App\Form\PlayerInfoType;
 use App\Repository\PlayerInfoRepository;
@@ -156,7 +157,7 @@ class PlayerInfoController extends AbstractController
                 $pi->getVorname(),
                 $pi->getNachname(),
                 $pi->getNahrung(),
-                $b->getIban(),
+                Config::formatIban($b->getIban()),
                 $b->getBank(),
                 $b->getBic(),
                 $b->getKontoinhaber()
@@ -213,7 +214,7 @@ class PlayerInfoController extends AbstractController
                 $k->getVorname() . ' ' . $k->getNachname(),
                 $k->getEmail(),
                 $k->getPhone(),
-                $b->getIban(),
+                Config::formatIban($b->getIban()),
                 $b->getBank(),
                 $b->getBic(),
                 $b->getKontoinhaber(),

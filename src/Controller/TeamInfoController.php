@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Config;
 use App\Entity\TeamInfo;
 use App\Form\TeamInfoType;
 use App\Repository\TeamInfoRepository;
@@ -161,7 +162,7 @@ class TeamInfoController extends AbstractController
         $cntSpieler = $x1 + $x2;
         $cntBetreuer = $x3 + $x4;
         $cntGaeste = $x5 + $x6;
-        $currcost = 90 * ($x1 + $x2 + $x3 + $x4 + $x5 + $x6);
+        $currcost = Config::MEAL_COST * ($x1 + $x2 + $x3 + $x4 + $x5 + $x6);
 
         $hasErrors = false;
 
@@ -302,7 +303,7 @@ class TeamInfoController extends AbstractController
                 $k->getVorname() . ' ' . $k->getNachname(),
                 $k->getEmail(),
                 $k->getPhone(),
-                $b->getIban(),
+                Config::formatIban($b->getIban()),
                 $b->getBic(),
                 $b->getBank(),
                 $b->getKontoinhaber(),
@@ -364,7 +365,7 @@ class TeamInfoController extends AbstractController
                 $k->getVorname() . ' ' . $k->getNachname(),
                 $k->getEmail(),
                 "'" . $k->getPhone(),
-                $b->getIban(),
+                Config::formatIban($b->getIban()),
                 $b->getBic(),
                 $b->getBank(),
                 $b->getKontoinhaber(),
