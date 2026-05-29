@@ -166,9 +166,9 @@ class PlayerInfoController extends AbstractController
         }
 
 
-        fputcsv($fd, $headers, ";");
+        fputcsv($fd, $headers, separator: ";", escape: "\\");
         foreach($records as $record) {
-            fputcsv($fd, $record, ";");
+            fputcsv($fd, $record, separator: ";", escape: "\\");
         }
 
         rewind($fd);
